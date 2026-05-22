@@ -1,0 +1,85 @@
+/* ─── Nav ─────────────────────────────────────────────────────── */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brandLogo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 0 0 1px var(--logo-ring), 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: block;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandName {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.brandSub {
+  color: var(--text-3);
+  font-weight: 400;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+}
+
+.links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14.5px;
+  color: var(--text-2);
+}
+
+.linkItem {
+  color: var(--text-2);
+}
+
+.linkItem:hover {
+  color: var(--text);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+
+@media (max-width: 760px) {
+  .links {
+    display: none;
+  }
+}

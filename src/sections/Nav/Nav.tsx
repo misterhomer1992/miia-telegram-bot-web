@@ -1,0 +1,55 @@
+import logoUrl from "~/assets/miia-logo.jpg?w=72&format=webp&imagetools";
+import logoFallback from "~/assets/miia-logo.jpg?w=72&format=jpg&imagetools";
+import { Button } from "~/components/Button/Button";
+import { Icon } from "~/components/Icon/Icon";
+import { LangSwitcher } from "~/components/LangSwitcher/LangSwitcher";
+import { ThemeToggle } from "~/components/ThemeToggle/ThemeToggle";
+import { useT } from "~/i18n/useT";
+import { useTelegramUrl } from "~/hooks/useTelegramUrl";
+import styles from "./Nav.module.css";
+
+export function Nav() {
+  const { t } = useT();
+  const botUrl = useTelegramUrl();
+  return (
+    <nav className={styles.nav}>
+      <div className={`wrap ${styles.inner}`}>
+        <a href="#top" className={styles.brand}>
+          <picture>
+            <source srcSet={logoUrl} type="image/webp" />
+            <img
+              src={logoFallback}
+              alt=""
+              className={styles.brandLogo}
+              width="36"
+              height="36"
+            />
+          </picture>
+          <span className={styles.brandText}>
+            <span className={styles.brandName}>{t("nav.brand")}</span>
+            <span className={styles.brandSub}>{t("nav.brandSub")}</span>
+          </span>
+        </a>
+        <div className={styles.links}>
+          <a href="#capabilities" className={styles.linkItem}>
+            {t("nav.links.capabilities")}
+          </a>
+          <a href="#how" className={styles.linkItem}>
+            {t("nav.links.how")}
+          </a>
+          <a href="#support" className={styles.linkItem}>
+            {t("nav.links.support")}
+          </a>
+        </div>
+        <div className={styles.right}>
+          <ThemeToggle />
+          <LangSwitcher />
+          <Button href={botUrl} external>
+            {t("nav.openInTelegram")}
+            <Icon name="arrowExternal" />
+          </Button>
+        </div>
+      </div>
+    </nav>
+  );
+}

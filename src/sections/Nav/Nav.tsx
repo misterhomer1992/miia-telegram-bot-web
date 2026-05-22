@@ -45,8 +45,8 @@ export function Nav() {
         <div className={styles.right}>
           <ThemeToggle />
           <LangSwitcher />
-          <Button href={botUrl} external onClick={() => event("open_telegram", { surface: "nav" })}>
-            {t("nav.openInTelegram")}
+          <Button href={botUrl} external onClick={() => event("open_telegram", { surface: "nav" })} className={styles.cta}>
+            <span className={styles.ctaLabel}>{t("nav.openInTelegram")}</span>
             <Icon name="arrowExternal" />
           </Button>
         </div>

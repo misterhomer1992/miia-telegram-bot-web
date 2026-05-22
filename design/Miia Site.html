@@ -329,9 +329,30 @@
   @media (max-width: 760px) {
     nav.top ul { display: none; }
     .lang-opt .native { display: none; }
+    nav.top .inner { padding: 14px 20px; }
+    .nav-right { gap: 8px; }
+    .brand { gap: 10px; }
+    .brand-name { font-size: 17px; }
+    .brand-name span { display: none; }
+    nav.top .nav-cta { padding: 9px 14px; }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 540px) {
+    .lang-btn { padding: 8px 10px; gap: 6px; }
     .lang-btn .label { display: none; }
+    .lang-btn .chev { display: none; }
+    .theme-toggle { width: 36px; height: 36px; }
+    /* Collapse CTA to icon-only on small screens */
+    nav.top .nav-cta { padding: 0; width: 36px; height: 36px; justify-content: center; border-radius: 50%; gap: 0; }
+    nav.top .nav-cta span { display: none; }
+    nav.top .nav-cta svg { width: 16px; height: 16px; }
+    nav.top .inner { padding: 12px 16px; }
+    .brand-mark { width: 32px; height: 32px; }
+  }
+  @media (max-width: 360px) {
+    .nav-right { gap: 6px; }
+    .theme-toggle { width: 34px; height: 34px; }
+    nav.top .nav-cta { width: 34px; height: 34px; }
+    .lang-btn { padding: 7px 9px; }
   }
 
   /* ─── Hero ──────────────────────────────────────────────── */

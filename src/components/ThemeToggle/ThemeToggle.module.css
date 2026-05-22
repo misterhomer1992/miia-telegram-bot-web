@@ -47,3 +47,11 @@
   transform: translateY(28px) rotate(90deg);
   opacity: 0;
 }
+
+@media (max-width: 540px) {
+  .toggle { width: 36px; height: 36px; }
+}
+
+@media (max-width: 360px) {
+  .toggle { width: 34px; height: 34px; }
+}

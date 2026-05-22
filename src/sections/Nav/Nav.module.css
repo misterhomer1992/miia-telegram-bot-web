@@ -79,7 +79,31 @@
 /* ─── Responsive ──────────────────────────────────────────────── */
 
 @media (max-width: 760px) {
-  .links {
-    display: none;
+  .links { display: none; }
+  .inner { padding: 14px 20px; }
+  .right { gap: 8px; }
+  .brand { gap: 10px; }
+  .brandName { font-size: 17px; }
+  .brandSub { display: none; }
+  .cta { padding: 9px 14px; }
+}
+
+@media (max-width: 540px) {
+  .inner { padding: 12px 16px; }
+  .brandLogo { width: 32px; height: 32px; }
+  .cta {
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+    border-radius: 50%;
+    gap: 0;
   }
+  .ctaLabel { display: none; }
+  .cta svg { width: 16px; height: 16px; }
+}
+
+@media (max-width: 360px) {
+  .right { gap: 6px; }
+  .cta { width: 34px; height: 34px; }
 }

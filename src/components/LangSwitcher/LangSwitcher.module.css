@@ -133,10 +133,14 @@
   color: var(--blue);
 }
 
-@media (max-width: 480px) {
-  .label {
-    display: none;
-  }
+@media (max-width: 540px) {
+  .button { padding: 8px 10px; gap: 6px; }
+  .label { display: none; }
+  .chevron { display: none; }
+}
+
+@media (max-width: 360px) {
+  .button { padding: 7px 9px; }
 }
 
 @media (max-width: 760px) {

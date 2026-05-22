@@ -1,4 +1,4 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, useMatches } from "react-router";
 import type { LinksFunction } from "react-router";
 
 import resetHref from "./styles/reset.css?url";
@@ -6,6 +6,8 @@ import tokensHref from "./styles/tokens.css?url";
 import fontsHref from "./styles/fonts.css?url";
 import animationsHref from "./styles/animations.css?url";
 import globalHref from "./styles/global.css?url";
+
+import { themeScript, langRedirectScript } from "./lib/inline-scripts";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -18,13 +20,19 @@ export const links: LinksFunction = () => [
 ];
 
 export default function Root() {
+  const matches = useMatches();
+  const id = matches[matches.length - 1]?.id ?? "";
+  const lang = id === "landing-uk" ? "uk" : id === "landing-pl" ? "pl" : "en";
+
   return (
-    <html lang="en" data-theme="dark">
+    <html lang={lang} data-theme="dark">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <Meta />
         <Links />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: langRedirectScript }} />
       </head>
       <body>
         <Outlet />

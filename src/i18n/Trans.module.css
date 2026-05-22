@@ -1,0 +1,23 @@
+.em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.em[data-variant="blue"] {
+  background: linear-gradient(135deg, var(--blue), var(--blue-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.em[data-variant="amber"] {
+  background: linear-gradient(135deg, var(--amber), var(--amber-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.em[data-variant="plain"] {
+  color: inherit;
+}

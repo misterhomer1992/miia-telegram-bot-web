@@ -1,0 +1,102 @@
+/* ─── Design tokens — lifted verbatim from design/Miia Site.html ──────────── */
+/* Dark theme defaults (also applies to [data-theme="dark"])                   */
+
+:root, [data-theme="dark"] {
+  /* Palette */
+  --ink: #050b1a;
+  --bg: #0a1428;
+  --bg-2: #0d1a35;
+  --panel: #122444;
+  --panel-2: #16294f;
+  --line: #1f3868;
+  --line-2: #284680;
+  --text: #e8eef7;
+  --text-2: #a9b8d4;
+  --text-3: #6f82a8;
+  --blue: #6bb6f0;
+  --blue-2: #4a96d8;
+  --blue-soft: rgba(107,182,240,.14);
+  --amber: #f5a166;
+  --amber-2: #e88a4a;
+  --amber-soft: rgba(245,161,102,.14);
+  --silver: #c9d4e8;
+
+  /* Surface tokens (theme-sensitive) */
+  --nav-bg: rgba(10,20,40,.62);
+  --nav-border: rgba(31,56,104,.5);
+  --grid-color: rgba(255,255,255,.025);
+  --atmo-blue-1: rgba(107,182,240,.18);
+  --atmo-amber-1: rgba(245,161,102,.14);
+  --atmo-blue-2: rgba(107,182,240,.10);
+  --eyebrow-bg: rgba(18,36,68,.6);
+  --chip-bg: rgba(5,11,26,.4);
+  --cta-fill: var(--text);
+  --cta-text: var(--ink);
+  --card-grad-from: rgba(18,36,68,.5);
+  --card-grad-to: rgba(13,26,53,.3);
+  --shadow-strong: 0 40px 80px rgba(0,0,0,.45);
+  --shadow-med: 0 20px 40px rgba(0,0,0,.45);
+  --hairline: rgba(255,255,255,.04);
+  --pdf-stack-bg: rgba(5,11,26,.4);
+  --vision-from: #0e1d3a;
+  --vision-to: #16294f;
+  --url-yt-border: rgba(245,87,79,.35);
+  --url-yt-bg: rgba(245,87,79,.06);
+  --steps-grad-from: rgba(18,36,68,.35);
+  --steps-grad-to: rgba(13,26,53,.15);
+  --final-atmo-blue: rgba(107,182,240,.10);
+  --final-atmo-amber: rgba(245,161,102,.10);
+  --logo-ring: rgba(201,212,232,.4);
+  --img-fallback-mid: var(--blue-2);
+}
+
+/* ─── Light theme overrides ───────────────────────────────────────────────── */
+
+[data-theme="light"] {
+  /* Palette */
+  --ink: #ffffff;
+  --bg: #f5f7fc;
+  --bg-2: #ffffff;
+  --panel: #ffffff;
+  --panel-2: #f8fafd;
+  --line: #e2e8f3;
+  --line-2: #c4d0e4;
+  --text: #0a1428;
+  --text-2: #4a5a78;
+  --text-3: #8896b3;
+  --blue: #2876c4;
+  --blue-2: #1c5ea3;
+  --blue-soft: rgba(40,118,196,.10);
+  --amber: #d97843;
+  --amber-2: #b6562a;
+  --amber-soft: rgba(217,120,67,.10);
+  --silver: #4a5a78;
+
+  /* Surface tokens */
+  --nav-bg: rgba(255,255,255,.78);
+  --nav-border: rgba(196,208,228,.7);
+  --grid-color: rgba(10,20,40,.04);
+  --atmo-blue-1: rgba(40,118,196,.10);
+  --atmo-amber-1: rgba(217,120,67,.08);
+  --atmo-blue-2: rgba(40,118,196,.06);
+  --eyebrow-bg: rgba(255,255,255,.7);
+  --chip-bg: rgba(245,247,252,.7);
+  --cta-fill: #0a1428;
+  --cta-text: #ffffff;
+  --card-grad-from: rgba(255,255,255,.9);
+  --card-grad-to: rgba(245,247,252,.6);
+  --shadow-strong: 0 30px 60px rgba(20,40,80,.12), 0 4px 12px rgba(20,40,80,.06);
+  --shadow-med: 0 12px 28px rgba(20,40,80,.08);
+  --hairline: rgba(10,20,40,.04);
+  --pdf-stack-bg: rgba(245,247,252,.6);
+  --vision-from: #e8eef7;
+  --vision-to: #d8e2f0;
+  --url-yt-border: rgba(245,87,79,.25);
+  --url-yt-bg: rgba(245,87,79,.05);
+  --steps-grad-from: rgba(255,255,255,.7);
+  --steps-grad-to: rgba(245,247,252,.4);
+  --final-atmo-blue: rgba(40,118,196,.08);
+  --final-atmo-amber: rgba(217,120,67,.07);
+  --logo-ring: rgba(74,90,120,.2);
+  --img-fallback-mid: #c4d0e4;
+}

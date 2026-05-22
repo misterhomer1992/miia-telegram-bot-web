@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "title": "Miia — AI co-pilot for Telegram",
+    "description": "Miia routes every message to the best model for the job — GPT, Gemini, Grok — reads your docs, sees your images, listens to your voice, and lives where your conversations already happen."
+  },
+  "nav": {
+    "brand": "Miia",
+    "brandSub": "/ AI for Telegram",
+    "links": {
+      "capabilities": "Capabilities",
+      "how": "How it works",
+      "support": "Support"
+    },
+    "openInTelegram": "Open in Telegram"
+  },
+  "hero": {
+    "eyebrow": "LIVE · TELEGRAM BOT",
+    "title": {
+      "line1": "Your AI <em1>co-pilot</em1>,",
+      "line2": "inside the chat <em2>you already use</em2>."
+    },
+    "lede": "Miia routes every message to the best model for the job — GPT, Gemini, Grok — reads your docs, sees your images, listens to your voice, and lives where your conversations already happen.",
+    "cta": {
+      "primary": "Open Miia in Telegram",
+      "ghost": "See what it does"
+    },
+    "meta": "FREE TO START · NO SIGN-UP · ~60s SETUP",
+    "meta1": "FREE TO START",
+    "meta2": "NO SIGN-UP",
+    "meta3": "~60s SETUP"
+  },
+  "why": {
+    "kicker": "Why Miia",
+    "title": "One bot. <em3>Every</em3> superpower you need from AI.",
+    "sub": "Other tools make you choose a model, an app, and a workflow. Miia just answers — using whatever's best, wherever you already are.",
+    "cards": [
+      {
+        "numeral": "i.",
+        "title": "The best model, automatically",
+        "body": "Miia picks GPT, Gemini, or Grok based on what you're actually asking — so you get the right brain for the job without thinking about it."
+      },
+      {
+        "numeral": "ii.",
+        "title": "Type, speak, snap, or drop",
+        "body": "Text, voice notes, photos, PDFs, links, YouTube — Miia handles every input modality Telegram supports, natively."
+      },
+      {
+        "numeral": "iii.",
+        "title": "Lives inside Telegram",
+        "body": "No new app, no separate login, no context switch. It's already in the place your messages live."
+      }
+    ]
+  },
+  "caps": {
+    "kicker": "Capabilities · 07",
+    "title": "Everything Miia <em3>can do</em3> for you.",
+    "sub": "A pocket-sized toolkit for thinking, making, and finding things out — built for the way you already chat.",
+    "items": [
+      {
+        "num": "01 / smart conversations",
+        "title": "Chat with <em1>top-tier</em1> models, no menu needed",
+        "body": "Miia auto-routes between GPT, Gemini, and Grok based on task complexity — coding goes one way, creative writing another, reasoning another still."
+      },
+      {
+        "num": "02 / image generation",
+        "title": "Make and edit <em1>images</em1> right in the chat",
+        "body": "Generate visuals at any resolution and aspect ratio, then edit them with plain language — no separate canvas, no upload-and-download dance."
+      },
+      {
+        "num": "03 / voice",
+        "title": "Speak. <em1>Listen.</em1> Hands-free.",
+        "body": "Send a voice note, hear a voice reply. Built for walks, dishes, and driving."
+      },
+      {
+        "num": "04 / documents",
+        "title": "Read your <em1>PDFs</em1>, answer your questions",
+        "body": "Upload docs and ask anything — Gemini file search does the heavy lifting."
+      },
+      {
+        "num": "05 / vision",
+        "title": "Sees what you see. <em1>Reads</em1> what you send.",
+        "body": "OCR, object recognition, and visual reasoning — drop an image and ask."
+      },
+      {
+        "num": "06 / links & video",
+        "title": "Drop a <em1>link</em1>. Get the gist.",
+        "body": "Paste any URL or YouTube video — Miia reads it, watches it, and answers your questions about it. Great for long articles and even longer videos."
+      },
+      {
+        "num": "07 / threads",
+        "title": "One bot, <em1>many</em1> minds",
+        "body": "Organize conversations into separate threads with custom contexts — a coding partner, a recipe brain, a research analyst. Each remembers only what it needs to."
+      }
+    ]
+  },
+  "how": {
+    "kicker": "How it works",
+    "title": "From zero to <em3>conversing</em3> in under a minute.",
+    "steps": [
+      {
+        "label": "STEP 01",
+        "title": "Open the bot",
+        "body": "Tap the button anywhere on this page — Telegram opens straight to Miia."
+      },
+      {
+        "label": "STEP 02",
+        "title": "Press start",
+        "body": "No sign-up, no email, no password. You're already logged in."
+      },
+      {
+        "label": "STEP 03",
+        "title": "Just message it",
+        "body": "Text, voice, image, doc, link. Miia figures out the rest."
+      }
+    ]
+  },
+  "cta": {
+    "title": "The fastest way to <em3>every</em3> AI you'd want to use.",
+    "lede": "Open Miia in Telegram and try it for free.",
+    "button": "Open Miia in Telegram"
+  },
+  "footer": {
+    "tag": "An AI co-pilot that lives where you already chat. Built for Telegram.",
+    "columns": [
+      {
+        "title": "Support",
+        "links": [
+          { "label": "Help center", "href": "#" },
+          { "label": "Contact us", "href": "#" },
+          { "label": "Report an issue", "href": "#" },
+          { "label": "Feature requests", "href": "#" }
+        ]
+      },
+      {
+        "title": "Community",
+        "links": [
+          { "label": "Telegram channel", "href": "#" },
+          { "label": "Discussion group", "href": "#" },
+          { "label": "Changelog", "href": "#" },
+          { "label": "Roadmap", "href": "#" }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          { "label": "Privacy", "href": "#" },
+          { "label": "Terms", "href": "#" },
+          { "label": "Data & security", "href": "#" }
+        ]
+      }
+    ],
+    "bottom": "© 2026 MIIA · ALL RIGHTS RESERVED",
+    "tg": "BUILT FOR TELEGRAM · NOT AFFILIATED"
+  },
+  "lang": {
+    "en": "English",
+    "uk": "Ukrainian",
+    "pl": "Polish"
+  }
+}

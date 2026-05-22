@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "title": "Miia — AI drugi pilot dla Telegrama",
+    "description": "Miia kieruje każdą wiadomość do najlepszego modelu — GPT, Gemini, Grok — czyta twoje dokumenty, widzi obrazy, słucha głosu i mieszka tam, gdzie już rozmawiasz."
+  },
+  "nav": {
+    "brand": "Miia",
+    "brandSub": "/ AI dla Telegrama",
+    "links": {
+      "capabilities": "Możliwości",
+      "how": "Jak to działa",
+      "support": "Wsparcie"
+    },
+    "openInTelegram": "Otwórz w Telegramie"
+  },
+  "hero": {
+    "eyebrow": "LIVE · BOT TELEGRAMA",
+    "title": {
+      "line1": "Twój <em1>drugi pilot</em1> AI",
+      "line2": "w czacie, którego <em2>już używasz</em2>."
+    },
+    "lede": "Miia kieruje każdą wiadomość do najlepszego modelu — GPT, Gemini, Grok — czyta twoje dokumenty, widzi obrazy, słucha głosu i mieszka tam, gdzie już rozmawiasz.",
+    "cta": {
+      "primary": "Otwórz Miia w Telegramie",
+      "ghost": "Zobacz, co potrafi"
+    },
+    "meta": "DARMOWY START · BEZ REJESTRACJI · ~60s KONFIGURACJI",
+    "meta1": "DARMOWY START",
+    "meta2": "BEZ REJESTRACJI",
+    "meta3": "~60s KONFIGURACJI"
+  },
+  "why": {
+    "kicker": "Dlaczego Miia",
+    "title": "Jeden bot. <em3>Wszystkie</em3> supermoce AI w jednym miejscu.",
+    "sub": "Inne narzędzia każą wybierać model, aplikację i sposób pracy. Miia po prostu odpowiada — używając tego, co najlepsze, tam, gdzie już jesteś.",
+    "cards": [
+      {
+        "numeral": "i.",
+        "title": "Najlepszy model, automatycznie",
+        "body": "Miia wybiera GPT, Gemini lub Grok w zależności od tego, o co naprawdę pytasz — więc dostajesz właściwy „mózg” bez zastanawiania się."
+      },
+      {
+        "numeral": "ii.",
+        "title": "Pisz, mów, fotografuj, wrzucaj",
+        "body": "Tekst, głosówki, zdjęcia, PDF-y, linki, YouTube — Miia obsługuje każdy format, który wspiera Telegram."
+      },
+      {
+        "numeral": "iii.",
+        "title": "Mieszka w Telegramie",
+        "body": "Bez nowej aplikacji, bez osobnego logowania, bez przełączania kontekstu. Jest tam, gdzie już są twoje wiadomości."
+      }
+    ]
+  },
+  "caps": {
+    "kicker": "Możliwości · 07",
+    "title": "Wszystko, co Miia <em3>może zrobić</em3> dla ciebie.",
+    "sub": "Kieszonkowy zestaw narzędzi do myślenia, tworzenia i odkrywania — zbudowany pod sposób, w jaki już rozmawiasz.",
+    "items": [
+      {
+        "num": "01 / inteligentne rozmowy",
+        "title": "Rozmawiaj z <em1>najlepszymi</em1> modelami, bez menu",
+        "body": "Miia automatycznie przełącza się między GPT, Gemini i Grokiem w zależności od złożoności zadania — kod do jednego, pisanie kreatywne do drugiego, rozumowanie do trzeciego."
+      },
+      {
+        "num": "02 / generowanie obrazów",
+        "title": "Twórz i edytuj <em1>obrazy</em1> w czacie",
+        "body": "Generuj grafiki w dowolnej rozdzielczości i proporcji, a potem edytuj je zwykłym językiem — bez osobnego edytora, bez wgrywania i pobierania."
+      },
+      {
+        "num": "03 / głos",
+        "title": "Mów. <em1>Słuchaj.</em1> Bez rąk.",
+        "body": "Wyślij głosówkę, usłysz odpowiedź. Zrobione na spacery, zmywanie i jazdę."
+      },
+      {
+        "num": "04 / dokumenty",
+        "title": "Czyta twoje <em1>PDF-y</em1>, odpowiada na pytania",
+        "body": "Wgrywaj dokumenty i pytaj o cokolwiek — Gemini file search robi resztę."
+      },
+      {
+        "num": "05 / wzrok",
+        "title": "Widzi to, co ty. <em1>Czyta</em1> to, co wysyłasz.",
+        "body": "OCR, rozpoznawanie obiektów i rozumienie obrazu — wrzuć zdjęcie i pytaj."
+      },
+      {
+        "num": "06 / linki i wideo",
+        "title": "Wrzuć <em1>link</em1>. Dostań sedno.",
+        "body": "Wklej dowolny URL lub film z YouTube — Miia go przeczyta, obejrzy i odpowie na twoje pytania. Świetne do długich artykułów i jeszcze dłuższych filmów."
+      },
+      {
+        "num": "07 / wątki",
+        "title": "Jeden bot, <em1>wiele</em1> umysłów",
+        "body": "Organizuj rozmowy w osobne wątki z własnym kontekstem — partner do kodu, mózg kulinarny, analityk badawczy. Każdy pamięta tylko to, co musi."
+      }
+    ]
+  },
+  "how": {
+    "kicker": "Jak to działa",
+    "title": "Od zera do <em3>rozmowy</em3> w mniej niż minutę.",
+    "steps": [
+      {
+        "label": "KROK 01",
+        "title": "Otwórz bota",
+        "body": "Stuknij przycisk w dowolnym miejscu na tej stronie — Telegram otworzy się prosto na Miia."
+      },
+      {
+        "label": "KROK 02",
+        "title": "Wciśnij start",
+        "body": "Bez rejestracji, bez maila, bez hasła. Już jesteś zalogowany."
+      },
+      {
+        "label": "KROK 03",
+        "title": "Po prostu pisz",
+        "body": "Tekst, głos, obraz, dokument, link. Resztę Miia ogarnie sama."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Najszybsza droga do <em3>każdego</em3> AI, którego mógłbyś chcieć użyć.",
+    "lede": "Otwórz Miia w Telegramie i wypróbuj za darmo.",
+    "button": "Otwórz Miia w Telegramie"
+  },
+  "footer": {
+    "tag": "Asystent AI, który mieszka tam, gdzie już rozmawiasz. Stworzony dla Telegrama.",
+    "columns": [
+      {
+        "title": "Wsparcie",
+        "links": [
+          { "label": "Centrum pomocy", "href": "#" },
+          { "label": "Kontakt", "href": "#" },
+          { "label": "Zgłoś problem", "href": "#" },
+          { "label": "Prośby o funkcje", "href": "#" }
+        ]
+      },
+      {
+        "title": "Społeczność",
+        "links": [
+          { "label": "Kanał Telegram", "href": "#" },
+          { "label": "Grupa dyskusyjna", "href": "#" },
+          { "label": "Zmiany", "href": "#" },
+          { "label": "Mapa drogowa", "href": "#" }
+        ]
+      },
+      {
+        "title": "Prawne",
+        "links": [
+          { "label": "Prywatność", "href": "#" },
+          { "label": "Regulamin", "href": "#" },
+          { "label": "Dane i bezpieczeństwo", "href": "#" }
+        ]
+      }
+    ],
+    "bottom": "© 2026 MIIA · WSZELKIE PRAWA ZASTRZEŻONE",
+    "tg": "ZBUDOWANE DLA TELEGRAMA · NIEPOWIĄZANE"
+  },
+  "lang": {
+    "en": "English",
+    "uk": "Ukrainian",
+    "pl": "Polish"
+  }
+}

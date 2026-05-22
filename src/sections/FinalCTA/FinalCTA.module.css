@@ -1,0 +1,66 @@
+/* ─── Final CTA ─────────────────────────────────────────────────────────────
+   Lifted from design/Miia Site.html — .final-cta
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.section {
+  text-align: center;
+  padding: 120px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Atmosphere orbs ────────────────────────────────────────────────────── */
+
+.orbBlue,
+.orbAmber {
+  position: absolute;
+  top: 0;
+  width: 800px;
+  height: 400px;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.orbBlue {
+  left: 20%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, var(--final-atmo-blue), transparent 70%);
+}
+
+.orbAmber {
+  left: 80%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, var(--final-atmo-amber), transparent 70%);
+}
+
+/* ─── Inner layout ───────────────────────────────────────────────────────── */
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ─── H2 ─────────────────────────────────────────────────────────────────── */
+
+.title {
+  font-size: clamp(40px, 5.4vw, 72px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin: 0 0 18px;
+  max-width: 920px;
+}
+
+/* ─── Lede ───────────────────────────────────────────────────────────────── */
+
+.lede {
+  color: var(--text-2);
+  font-size: 19px;
+  margin: 0 0 40px;
+}

@@ -1,3 +1,5 @@
+import logoUrl from "~/assets/miia-logo.jpg?w=64&format=webp&imagetools";
+import logoFallback from "~/assets/miia-logo.jpg?w=64&format=jpg&imagetools";
 import { Icon } from "~/components/Icon/Icon";
 import styles from "./PhonePreview.module.css";
 
@@ -8,7 +10,16 @@ export function PhonePreview() {
       <div className={`${styles.orb} ${styles.orbAmber}`} aria-hidden="true" />
       <div className={styles.phone}>
         <div className={styles.header}>
-          <div className={styles.avatar} aria-hidden="true" />
+          <picture>
+            <source srcSet={logoUrl} type="image/webp" />
+            <img
+              src={logoFallback}
+              alt=""
+              className={styles.avatar}
+              width="32"
+              height="32"
+            />
+          </picture>
           <div className={styles.headerMain}>
             <div className={styles.name}>Miia</div>
             <div className={styles.status}>

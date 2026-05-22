@@ -1,0 +1,87 @@
+/* ─── Hero Section ──────────────────────────────────────────────────────────
+   Lifted from design/Miia Site.html — .hero, .hero-grid, .eyebrow,
+   h1.hero-title, .lede, .cta-row, .cta-meta
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.section {
+  padding: 92px 0 80px;
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+}
+
+/* ─── Eyebrow pill ──────────────────────────────────────────────────────── */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--text-2);
+  background: var(--eyebrow-bg);
+}
+
+.eyebrowDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.18);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+/* ─── H1 ─────────────────────────────────────────────────────────────────── */
+
+.title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(48px, 6.4vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+  margin: 24px 0 24px;
+}
+
+/* ─── Lede ───────────────────────────────────────────────────────────────── */
+
+.lede {
+  font-size: 19px;
+  color: var(--text-2);
+  max-width: 540px;
+  margin: 0 0 36px;
+  line-height: 1.55;
+}
+
+/* ─── CTA row ────────────────────────────────────────────────────────────── */
+
+.ctaRow {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ─── Meta row ───────────────────────────────────────────────────────────── */
+
+.meta {
+  margin-top: 20px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--text-3);
+}

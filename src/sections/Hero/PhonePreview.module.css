@@ -1,0 +1,301 @@
+/* ─── Phone Preview — always dark internals ─────────────────────────────────
+   Lifted from design/Miia Site.html — .hero-visual, .orb, .phone,
+   .phone-header, .msgs, .msg, .compose, .corner-label
+   The [data-phone-theme="dark"] scope forces dark colors regardless of theme.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ─── Force dark tokens inside the phone wrapper ─────────────────────────── */
+
+[data-phone-theme="dark"] {
+  --phone-text: #e8eef7;
+  --phone-text-2: #a9b8d4;
+  --phone-text-3: #6f82a8;
+  --phone-ink: #050b1a;
+  --phone-line: #1f3868;
+  --phone-line-2: #284680;
+  --phone-blue: #6bb6f0;
+  --phone-blue-2: #4a96d8;
+  --phone-amber: #f5a166;
+  --phone-amber-2: #e88a4a;
+  --phone-amber-soft: rgba(245, 161, 102, 0.14);
+}
+
+/* ─── Outer wrapper (positions orbs + phone + corner labels) ─────────────── */
+
+.wrap {
+  position: relative;
+  aspect-ratio: 1 / 1.08;
+  max-width: 520px;
+  margin-left: auto;
+}
+
+/* ─── Blurred atmosphere orbs ────────────────────────────────────────────── */
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.orbBlue {
+  top: -10%;
+  left: -10%;
+  width: 60%;
+  aspect-ratio: 1;
+  background: #6bb6f0;
+  animation: float1 9s ease-in-out infinite;
+}
+
+.orbAmber {
+  bottom: -10%;
+  right: -10%;
+  width: 60%;
+  aspect-ratio: 1;
+  background: #f5a166;
+  animation: float2 11s ease-in-out infinite;
+}
+
+/* ─── Phone card ─────────────────────────────────────────────────────────── */
+
+.phone {
+  position: relative;
+  z-index: 2;
+  color: var(--phone-text);
+  background: linear-gradient(180deg, #0e1d3a 0%, #0b1730 100%);
+  border: 1px solid #284680;
+  border-radius: 28px;
+  padding: 18px 16px 20px;
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(107, 182, 240, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ─── Phone header ───────────────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 6px 12px;
+  border-bottom: 1px solid rgba(40, 70, 128, 0.4);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6bb6f0, #f5a166);
+  box-shadow: 0 0 0 1px rgba(201, 212, 232, 0.3);
+  flex-shrink: 0;
+}
+
+.headerMain {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--phone-text);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #4ade80;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+}
+
+.menu {
+  margin-left: auto;
+  color: var(--phone-text-3);
+  font-size: 18px;
+  letter-spacing: 0.15em;
+}
+
+/* ─── Messages area ──────────────────────────────────────────────────────── */
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.msg {
+  max-width: 78%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  opacity: 0;
+  animation: msgIn 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, var(--phone-blue) 0%, var(--phone-blue-2) 100%);
+  color: var(--phone-ink);
+  border-bottom-right-radius: 4px;
+}
+
+.bot {
+  align-self: flex-start;
+  background: rgba(40, 70, 128, 0.35);
+  color: var(--phone-text);
+  border: 1px solid var(--phone-line);
+  border-bottom-left-radius: 4px;
+}
+
+/* ─── Tag (image · gemini) ───────────────────────────────────────────────── */
+
+.tag {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* ─── Image stub (gradient preview block) ────────────────────────────────── */
+
+.imgStub {
+  margin-top: 8px;
+  height: 110px;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    var(--phone-amber) 0%,
+    var(--phone-amber-2) 35%,
+    var(--phone-blue-2) 75%,
+    var(--phone-blue) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.imgStub::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.25), transparent 50%);
+}
+
+/* ─── Typing indicator ───────────────────────────────────────────────────── */
+
+.typing {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  padding: 12px 14px;
+}
+
+.typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--phone-text-2);
+  animation: typing 1.2s ease-in-out infinite;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* ─── Compose bar ────────────────────────────────────────────────────────── */
+
+.compose {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(5, 11, 26, 0.5);
+  border: 1px solid var(--phone-line);
+  border-radius: 22px;
+  margin-top: 4px;
+}
+
+.iconBtn {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  color: var(--phone-text-3);
+  flex-shrink: 0;
+}
+
+.placeholder {
+  flex: 1;
+  color: var(--phone-text-3);
+  font-size: 13px;
+}
+
+.send {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--phone-blue);
+  color: var(--phone-ink);
+  flex-shrink: 0;
+}
+
+/* ─── Corner labels ──────────────────────────────────────────────────────── */
+
+.cornerLabel {
+  position: absolute;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--phone-text-3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 3;
+}
+
+.cornerTopLeft {
+  top: -22px;
+  left: 8px;
+}
+
+.cornerBottomRight {
+  bottom: -22px;
+  right: 8px;
+}
+
+.connectorLine {
+  width: 28px;
+  height: 1px;
+  background: var(--phone-line-2);
+}

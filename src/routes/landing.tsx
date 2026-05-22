@@ -18,7 +18,7 @@ export const meta: MetaFunction = (args) => {
   const t = resources[locale].translation as { meta: { title: string; description: string } };
   const path = locale === "en" ? "/" : `/${locale}/`;
   const url = `${SITE_URL}${path}`;
-  const ogImage = `${SITE_URL}/og-image.png`;
+  const ogImage = `${SITE_URL}/og-image.jpg`;
 
   return [
     { title: t.meta.title },

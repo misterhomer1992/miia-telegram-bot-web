@@ -4,7 +4,11 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { imagetools } from "vite-imagetools";
 
 export default defineConfig({
-  plugins: [reactRouter(), tsconfigPaths(), imagetools()],
+  plugins: [
+    !process.env.VITEST && reactRouter(),
+    tsconfigPaths(),
+    imagetools(),
+  ],
   test: {
     globals: true,
     environment: "happy-dom",

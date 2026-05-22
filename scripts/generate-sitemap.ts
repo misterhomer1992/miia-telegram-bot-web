@@ -1,11 +1,16 @@
-import { writeFileSync } from "node:fs";
+import { config as loadEnv } from "dotenv";
+import { existsSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+
+// Load .env.production (if it exists) then .env (fallback). NOOP if neither exists.
+if (existsSync(".env.production")) loadEnv({ path: ".env.production" });
+else if (existsSync(".env")) loadEnv({ path: ".env" });
 
 const SITE_URL = process.env.VITE_SITE_URL ?? "https://miia.example.com";
 const routes: { path: string; locale: "en" | "uk" | "pl" }[] = [
   { path: "/", locale: "en" },
-  { path: "/uk/", locale: "uk" },
-  { path: "/pl/", locale: "pl" },
+  { path: "/uk", locale: "uk" },
+  { path: "/pl", locale: "pl" },
 ];
 
 const now = new Date().toISOString().slice(0, 10);
@@ -33,6 +38,15 @@ ${routes.map((r) => urlEntry(r.path)).join("\n")}
 </urlset>
 `;
 
-const out = join(process.cwd(), "build", "client", "sitemap.xml");
-writeFileSync(out, xml, "utf-8");
-console.log(`Wrote ${out}`);
+const sitemapOut = join(process.cwd(), "build", "client", "sitemap.xml");
+writeFileSync(sitemapOut, xml, "utf-8");
+console.log(`Wrote ${sitemapOut}`);
+
+const robotsXml = `User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+`;
+const robotsOut = join(process.cwd(), "build", "client", "robots.txt");
+writeFileSync(robotsOut, robotsXml, "utf-8");
+console.log(`Wrote ${robotsOut}`);

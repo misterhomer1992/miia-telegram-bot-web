@@ -16,7 +16,7 @@ export const meta: MetaFunction = (args) => {
   const id = args.matches[args.matches.length - 1]?.id ?? "";
   const locale = id === "landing-uk" ? "uk" : id === "landing-pl" ? "pl" : "en";
   const t = resources[locale].translation as { meta: { title: string; description: string } };
-  const path = locale === "en" ? "/" : `/${locale}/`;
+  const path = locale === "en" ? "/" : `/${locale}`;
   const url = `${SITE_URL}${path}`;
   const ogImage = `${SITE_URL}/og-image.jpg`;
 
@@ -35,8 +35,8 @@ export const meta: MetaFunction = (args) => {
     { name: "twitter:image", content: ogImage },
     { tagName: "link", rel: "canonical", href: url },
     { tagName: "link", rel: "alternate", hrefLang: "en", href: `${SITE_URL}/` },
-    { tagName: "link", rel: "alternate", hrefLang: "uk", href: `${SITE_URL}/uk/` },
-    { tagName: "link", rel: "alternate", hrefLang: "pl", href: `${SITE_URL}/pl/` },
+    { tagName: "link", rel: "alternate", hrefLang: "uk", href: `${SITE_URL}/uk` },
+    { tagName: "link", rel: "alternate", hrefLang: "pl", href: `${SITE_URL}/pl` },
     { tagName: "link", rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}/` },
     {
       "script:ld+json": {

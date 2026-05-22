@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { useMatches } from "react-router";
+import { useMatches, useLocation } from "react-router";
+import { pageview } from "~/lib/analytics";
 import type { MetaFunction } from "react-router";
 import { setupI18n, resources, type Locale } from "~/i18n/config";
 import { SITE_URL } from "~/lib/constants";
@@ -66,6 +67,11 @@ export default function Landing() {
   useEffect(() => {
     setupI18n(locale);
   }, [locale]);
+
+  const location = useLocation();
+  useEffect(() => {
+    pageview(location.pathname, locale);
+  }, [location.pathname, locale]);
 
   return (
     <>

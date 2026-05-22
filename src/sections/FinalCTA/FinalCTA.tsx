@@ -3,6 +3,7 @@ import { Icon } from "~/components/Icon/Icon";
 import { Trans } from "~/i18n/Trans";
 import { useT } from "~/i18n/useT";
 import { useTelegramUrl } from "~/hooks/useTelegramUrl";
+import { event } from "~/lib/analytics";
 import styles from "./FinalCTA.module.css";
 
 export function FinalCTA() {
@@ -18,7 +19,7 @@ export function FinalCTA() {
             <Trans>{t("cta.title")}</Trans>
           </h2>
           <p className={styles.lede}>{t("cta.lede")}</p>
-          <Button href={botUrl} external variant="primary">
+          <Button href={botUrl} external variant="primary" onClick={() => event("open_telegram", { surface: "final" })}>
             <Icon name="paperPlane" />
             {t("cta.button")}
           </Button>

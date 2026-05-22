@@ -6,6 +6,7 @@ import { LangSwitcher } from "~/components/LangSwitcher/LangSwitcher";
 import { ThemeToggle } from "~/components/ThemeToggle/ThemeToggle";
 import { useT } from "~/i18n/useT";
 import { useTelegramUrl } from "~/hooks/useTelegramUrl";
+import { event } from "~/lib/analytics";
 import styles from "./Nav.module.css";
 
 export function Nav() {
@@ -44,7 +45,7 @@ export function Nav() {
         <div className={styles.right}>
           <ThemeToggle />
           <LangSwitcher />
-          <Button href={botUrl} external>
+          <Button href={botUrl} external onClick={() => event("open_telegram", { surface: "nav" })}>
             {t("nav.openInTelegram")}
             <Icon name="arrowExternal" />
           </Button>

@@ -3,6 +3,7 @@ import { Icon } from "~/components/Icon/Icon";
 import { Trans } from "~/i18n/Trans";
 import { useT } from "~/i18n/useT";
 import { useTelegramUrl } from "~/hooks/useTelegramUrl";
+import { event } from "~/lib/analytics";
 import { PhonePreview } from "./PhonePreview";
 import styles from "./Hero.module.css";
 
@@ -24,7 +25,7 @@ export function Hero() {
           </h1>
           <p className={styles.lede}>{t("hero.lede")}</p>
           <div className={styles.ctaRow}>
-            <Button href={botUrl} external variant="primary">
+            <Button href={botUrl} external variant="primary" onClick={() => event("open_telegram", { surface: "hero" })}>
               <Icon name="paperPlane" />
               {t("hero.cta.primary")}
             </Button>

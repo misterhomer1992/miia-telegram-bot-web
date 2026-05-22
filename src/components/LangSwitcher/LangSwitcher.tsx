@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { supportedLanguages, type Locale } from "~/i18n/config";
 import { Icon } from "../Icon/Icon";
 import { Flag } from "./Flag";
+import { event } from "~/lib/analytics";
 import styles from "./LangSwitcher.module.css";
 
 const NATIVE: Record<Locale, string> = {
@@ -42,6 +43,7 @@ export function LangSwitcher() {
     } catch {
       // storage unavailable — ignore
     }
+    event("lang_switch", { to: locale });
     setOpen(false);
     navigate(pathForLocale(locale));
   }

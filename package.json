@@ -1,0 +1,52 @@
+{
+  "name": "miia-telegram-bot-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "react-router dev",
+    "build": "react-router build && node --experimental-strip-types scripts/generate-sitemap.ts",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest",
+    "deploy": "npm run build && firebase deploy --only hosting",
+    "deploy:preview": "npm run build && firebase hosting:channel:deploy preview"
+  },
+  "dependencies": {
+    "@react-router/dev": "^7.15.1",
+    "@react-router/node": "^7.15.1",
+    "i18next": "^24.2.3",
+    "isbot": "^5.1.40",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-i18next": "^15.7.4",
+    "react-router": "^7.15.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^20.19.41",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "@vitest/coverage-v8": "^2.1.9",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "firebase-tools": "^13.35.1",
+    "happy-dom": "^15.11.7",
+    "prettier": "^3.8.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.59.4",
+    "vite": "^6.4.2",
+    "vite-imagetools": "^7.1.1",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^2.1.9"
+  }
+}

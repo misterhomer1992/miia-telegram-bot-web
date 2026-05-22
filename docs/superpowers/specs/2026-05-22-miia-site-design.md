@@ -19,16 +19,16 @@ Non-goals: blog, dashboard, auth, multi-page IA. This is one landing page render
 
 ## 2. Stack
 
-| Layer | Choice | Why |
-|---|---|---|
-| Build | Vite + React 19 | Fast dev, mature ecosystem |
-| Framework | React Router v7 (framework mode) | Built-in SSG via `prerender` — no extra SSR plumbing |
-| Rendering | Pure SSG (`ssr: false` + `prerender: ["/", "/uk", "/pl"]`) | Static HTML per locale = best SEO + fits Firebase Hosting |
-| Styling | Global tokens stylesheet + CSS Modules | Lifts prototype CSS variables verbatim; per-component scoping; no utility translation tax |
-| i18n | `react-i18next` + `i18next` | Type-safe keys, ICU formatting, lazy-load support |
-| Analytics | GA4 via `gtag.js` | User preference; async load |
-| Hosting | Firebase Hosting | User preference; serves the `build/client/` output as-is |
-| Lang | TypeScript (strict) | Type safety on i18n keys, route params |
+| Layer     | Choice                                                     | Why                                                                                       |
+| --------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Build     | Vite + React 19                                            | Fast dev, mature ecosystem                                                                |
+| Framework | React Router v7 (framework mode)                           | Built-in SSG via `prerender` — no extra SSR plumbing                                      |
+| Rendering | Pure SSG (`ssr: false` + `prerender: ["/", "/uk", "/pl"]`) | Static HTML per locale = best SEO + fits Firebase Hosting                                 |
+| Styling   | Global tokens stylesheet + CSS Modules                     | Lifts prototype CSS variables verbatim; per-component scoping; no utility translation tax |
+| i18n      | `react-i18next` + `i18next`                                | Type-safe keys, ICU formatting, lazy-load support                                         |
+| Analytics | GA4 via `gtag.js`                                          | User preference; async load                                                               |
+| Hosting   | Firebase Hosting                                           | User preference; serves the `build/client/` output as-is                                  |
+| Lang      | TypeScript (strict)                                        | Type safety on i18n keys, route params                                                    |
 
 ## 3. Project Structure
 
@@ -103,6 +103,7 @@ miia-telegram-bot-web/
 ## 4. Rendering & Routing
 
 **`react-router.config.ts`:**
+
 ```ts
 import type { Config } from "@react-router/dev/config";
 export default {
@@ -112,6 +113,7 @@ export default {
 ```
 
 **`src/routes.ts`:**
+
 ```ts
 import { type RouteConfig, index, route } from "@react-router/dev/routes";
 export default [
@@ -122,6 +124,7 @@ export default [
 ```
 
 `react-router build` emits:
+
 ```
 build/client/index.html       → en
 build/client/uk/index.html    → uk
@@ -139,12 +142,13 @@ Build-time HTML is emitted with `<html data-theme="dark">` (the prototype's defa
 An inline script in `<head>` (kept as a string literal in `src/lib/inline-scripts.ts`, ~15 lines, runs synchronously before paint) resolves the user's theme and applies it:
 
 ```js
-const stored = localStorage.getItem('miia.theme');
-const sysLight = matchMedia('(prefers-color-scheme: light)').matches;
-document.documentElement.dataset.theme = stored || (sysLight ? 'light' : 'dark');
+const stored = localStorage.getItem("miia.theme");
+const sysLight = matchMedia("(prefers-color-scheme: light)").matches;
+document.documentElement.dataset.theme = stored || (sysLight ? "light" : "dark");
 ```
 
 `useTheme()`:
+
 - On mount, reads `document.documentElement.dataset.theme`.
 - On toggle, writes new value to both `dataset.theme` and `localStorage["miia.theme"]`.
 - Returns `[theme, toggle]`.
@@ -156,6 +160,7 @@ CSS transitions on `background`/`color`/`border-color` smooth the theme swap sit
 ## 6. i18n Strategy
 
 ### Dictionaries
+
 Lifted verbatim from `design/Miia Site.html`'s `const I18N = { en, uk, pl }` block into `src/i18n/locales/{en,uk,pl}.json`. **Polish and Ukrainian copy is reviewed by the brand owner — do not machine-retranslate.**
 
 Keys are flattened with dots: `hero.title.line1`, `caps.01.title`, `nav.openInTelegram`, etc.
@@ -169,11 +174,13 @@ Strings containing inline markup (italic-serif `<em>` spans, gradient-clipped ru
 A small `<Trans>` helper component parses these and maps `<em1>`/`<em2>` to the right styled `<em>` spans. Type-safe, XSS-safe (no `dangerouslySetInnerHTML`).
 
 ### Routing & locale resolution
+
 - **At prerender:** locale is derived from route ID. `i18n.changeLanguage()` runs before the React tree renders.
 - **On client soft-redirect from `/`:** an inline script (sibling to the theme one) runs only when the URL path is exactly `/`. It reads `localStorage["miia.lang"]` first — if present, it redirects to that locale. If not present, it inspects `navigator.language` (`uk-*` → `uk`, `pl-*` → `pl`, else stay on `/`) and writes the result to localStorage so the decision is sticky. Redirects use `location.replace()` so they don't pollute history. **Crawlers don't execute this script**, so bots always see vanilla English `/`. Once a user has visited `/uk` or `/pl` explicitly, `miia.lang` is updated by the lang switcher, so future visits to `/` honor that preference.
 - **Lang switcher:** real `<a href="/uk">` elements with React Router's client-side intercept for instant nav. Writes `miia.lang` to localStorage.
 
 ### Type-safety
+
 `src/types/i18n.d.ts` declares `resources` in i18next's module augmentation so `t('hero.title.line1')` autocompletes and typos error at build time.
 
 ## 7. SEO
@@ -194,10 +201,12 @@ Each pre-rendered HTML emits in `<head>`:
 `{HOST}` is read from `VITE_SITE_URL` env var at build time (defaults to `https://miia.example.com` if unset, replaced before first prod deploy).
 
 ### Sitemap & robots
+
 - `public/robots.txt` — allows all, references the sitemap URL.
 - `scripts/generate-sitemap.ts` — runs post-build, walks `build/client/**/index.html`, emits `build/client/sitemap.xml` with three `<url>` entries plus `<xhtml:link rel="alternate" hreflang="…">` siblings on each.
 
 ### Semantic HTML
+
 - Hero contains the single `<h1>`. Each section has `<h2>`. Cards within sections use `<h3>`.
 - `<nav>`, `<main>`, `<section>`, `<footer>` landmarks.
 - All decorative SVGs get `aria-hidden="true"`.
@@ -235,6 +244,7 @@ Each pre-rendered HTML emits in `<head>`:
 ## 10. Firebase Hosting
 
 ### `firebase.json`
+
 ```jsonc
 {
   "hosting": {
@@ -243,24 +253,28 @@ Each pre-rendered HTML emits in `<head>`:
     "cleanUrls": true,
     "trailingSlash": false,
     "headers": [
-      { "source": "**/*.@(js|css|woff2|webp|avif|jpg|png|svg)",
-        "headers": [{ "key": "Cache-Control", "value": "public,max-age=31536000,immutable" }] },
-      { "source": "**/*.html",
-        "headers": [{ "key": "Cache-Control", "value": "public,max-age=0,must-revalidate" }] }
+      {
+        "source": "**/*.@(js|css|woff2|webp|avif|jpg|png|svg)",
+        "headers": [{ "key": "Cache-Control", "value": "public,max-age=31536000,immutable" }],
+      },
+      {
+        "source": "**/*.html",
+        "headers": [{ "key": "Cache-Control", "value": "public,max-age=0,must-revalidate" }],
+      },
     ],
-    "rewrites": [
-      { "source": "**", "destination": "/index.html" }
-    ]
-  }
+    "rewrites": [{ "source": "**", "destination": "/index.html" }],
+  },
 }
 ```
 
 The catch-all rewrite to `/index.html` is a safety net for any unknown path. A proper 404 page can be wired later.
 
 ### `.firebaserc`
+
 Created interactively by `firebase init hosting` (asks for project ID). Not committed initially — added once the user runs `firebase init`.
 
 ### Scripts (`package.json`)
+
 ```
 "dev":             "react-router dev"
 "build":           "react-router build && node scripts/generate-sitemap.ts"

@@ -26,6 +26,7 @@
 ### Task 1: Initialize package.json, Node pin, EditorConfig
 
 **Files:**
+
 - Create: `package.json`
 - Create: `.nvmrc`
 - Create: `.editorconfig`
@@ -110,6 +111,7 @@ git commit -m "chore: scaffold package.json and toolchain"
 ### Task 2: TypeScript, Vite, React Router config
 
 **Files:**
+
 - Create: `tsconfig.json`
 - Create: `vite.config.ts`
 - Create: `react-router.config.ts`
@@ -206,6 +208,7 @@ git commit -m "chore: configure typescript, vite, and react router"
 ### Task 3: ESLint + Prettier
 
 **Files:**
+
 - Create: `eslint.config.js`
 - Create: `.prettierrc`
 - Create: `.prettierignore`
@@ -280,6 +283,7 @@ git commit -m "chore: add eslint and prettier"
 ### Task 4: Vitest setup file
 
 **Files:**
+
 - Create: `src/test/setup.ts`
 
 - [ ] **Step 1: Create `src/test/setup.ts`**
@@ -326,6 +330,7 @@ git commit -m "chore: configure vitest with happy-dom and testing-library"
 ### Task 5: Minimal app shell — root, entry, routes, empty landing
 
 **Files:**
+
 - Create: `src/root.tsx`
 - Create: `src/entry.client.tsx`
 - Create: `src/entry.server.tsx`
@@ -414,9 +419,7 @@ export default function handleRequest(
           const body = new PassThrough();
           const stream = createReadableStreamFromReadable(body);
           responseHeaders.set("Content-Type", "text/html");
-          resolve(
-            new Response(stream, { headers: responseHeaders, status: responseStatusCode }),
-          );
+          resolve(new Response(stream, { headers: responseHeaders, status: responseStatusCode }));
           pipe(body);
         },
         onShellError(error: unknown) {
@@ -474,6 +477,7 @@ git commit -m "feat: minimal react router v7 app shell"
 ### Task 6: Lift CSS custom properties into tokens.css
 
 **Files:**
+
 - Create: `src/styles/tokens.css`
 
 - [ ] **Step 1: Open prototype for reference**
@@ -529,6 +533,7 @@ After saving, grep `design/Miia Site.html` for `--` to make sure you haven't mis
 - [ ] **Step 3: Verify by diffing token names**
 
 Run:
+
 ```bash
 grep -oE '\-\-[a-z0-9-]+' design/Miia\ Site.html | sort -u > /tmp/proto-tokens.txt
 grep -oE '\-\-[a-z0-9-]+' src/styles/tokens.css | sort -u > /tmp/ours-tokens.txt
@@ -549,6 +554,7 @@ git commit -m "feat(styles): lift design tokens from prototype"
 ### Task 7: Fonts, reset, global, animations CSS
 
 **Files:**
+
 - Create: `src/styles/fonts.css`
 - Create: `src/styles/reset.css`
 - Create: `src/styles/global.css`
@@ -644,7 +650,9 @@ body {
   font-family: var(--font-display);
   font-size: 17px;
   line-height: 1.55;
-  transition: background 0.25s ease, color 0.25s ease;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
 }
 
 .wrap {
@@ -684,6 +692,7 @@ git commit -m "feat(styles): add fonts, reset, global, and animations"
 ### Task 8: Wire styles into root.tsx via Links export
 
 **Files:**
+
 - Modify: `src/root.tsx`
 
 - [ ] **Step 1: Update `src/root.tsx` to import styles via Links export**
@@ -747,6 +756,7 @@ git commit -m "feat(root): wire global styles and font preconnect"
 ### Task 9: Lift translation dictionaries
 
 **Files:**
+
 - Create: `src/i18n/locales/en.json`
 - Create: `src/i18n/locales/uk.json`
 - Create: `src/i18n/locales/pl.json`
@@ -813,9 +823,28 @@ Create `src/i18n/locales/en.json`:
   "cta": { "title": "…", "lede": "…", "button": "Open Miia in Telegram" },
   "footer": {
     "columns": [
-      { "title": "Support", "links": [ { "label": "Help center", "href": "#" }, { "label": "Contact us", "href": "#" } ] },
-      { "title": "Community", "links": [ { "label": "Telegram channel", "href": "#" }, { "label": "Discussion group", "href": "#" } ] },
-      { "title": "Legal", "links": [ { "label": "Privacy", "href": "#" }, { "label": "Terms", "href": "#" }, { "label": "Data & security", "href": "#" } ] }
+      {
+        "title": "Support",
+        "links": [
+          { "label": "Help center", "href": "#" },
+          { "label": "Contact us", "href": "#" }
+        ]
+      },
+      {
+        "title": "Community",
+        "links": [
+          { "label": "Telegram channel", "href": "#" },
+          { "label": "Discussion group", "href": "#" }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          { "label": "Privacy", "href": "#" },
+          { "label": "Terms", "href": "#" },
+          { "label": "Data & security", "href": "#" }
+        ]
+      }
     ],
     "bottom": "BUILT FOR TELEGRAM · NOT AFFILIATED"
   },
@@ -832,6 +861,7 @@ Create `src/i18n/locales/uk.json` and `src/i18n/locales/pl.json` with identical 
 - [ ] **Step 5: Verify all three files have identical key sets**
 
 Run (requires `jq`):
+
 ```bash
 diff <(jq -r 'paths | join(".")' src/i18n/locales/en.json | sort) \
      <(jq -r 'paths | join(".")' src/i18n/locales/uk.json | sort)
@@ -853,6 +883,7 @@ git commit -m "feat(i18n): lift translation dictionaries from prototype"
 ### Task 10: i18next config + typed keys
 
 **Files:**
+
 - Create: `src/i18n/config.ts`
 - Create: `src/types/i18n.d.ts`
 
@@ -930,6 +961,7 @@ git commit -m "feat(i18n): configure i18next with typed resources"
 ### Task 11: `<Trans>` helper for inline markup
 
 **Files:**
+
 - Create: `src/i18n/Trans.tsx`
 - Create: `src/i18n/Trans.test.tsx`
 - Create: `src/i18n/Trans.module.css`
@@ -1058,6 +1090,7 @@ git commit -m "feat(i18n): add Trans helper for typed inline markup"
 ### Task 12: useT typed wrapper hook
 
 **Files:**
+
 - Create: `src/i18n/useT.ts`
 
 - [ ] **Step 1: Create `src/i18n/useT.ts`**
@@ -1087,6 +1120,7 @@ git commit -m "feat(i18n): add useT wrapper hook"
 ### Task 13: Pre-hydration inline scripts (theme + lang)
 
 **Files:**
+
 - Create: `src/lib/inline-scripts.ts`
 - Create: `src/lib/inline-scripts.test.ts`
 
@@ -1167,6 +1201,7 @@ git commit -m "feat(lib): add pre-hydration theme and lang inline scripts"
 ### Task 14: useTheme hook
 
 **Files:**
+
 - Create: `src/hooks/useTheme.ts`
 - Create: `src/hooks/useTheme.test.tsx`
 
@@ -1276,6 +1311,7 @@ git commit -m "feat(hooks): add useTheme with SSG-safe initialization"
 ### Task 15: Telegram URL constant + useTelegramUrl hook
 
 **Files:**
+
 - Create: `src/lib/constants.ts`
 - Create: `src/hooks/useTelegramUrl.ts`
 
@@ -1312,6 +1348,7 @@ git commit -m "feat: centralize telegram url and site url constants"
 ### Task 16: Icon component (inline SVGs from prototype)
 
 **Files:**
+
 - Create: `src/components/Icon/Icon.tsx`
 - Create: `src/components/Icon/icons.tsx`
 
@@ -1325,7 +1362,13 @@ import type { ReactNode } from "react";
 export const icons: Record<string, ReactNode> = {
   arrowExternal: (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M7 17 17 7M9 7h8v8"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   sun: (
@@ -1366,6 +1409,7 @@ git commit -m "feat(components): add Icon library lifted from prototype svgs"
 ### Task 17: Button component (primary gradient + ghost)
 
 **Files:**
+
 - Create: `src/components/Button/Button.tsx`
 - Create: `src/components/Button/Button.module.css`
 - Create: `src/components/Button/Button.test.tsx`
@@ -1404,7 +1448,11 @@ describe("Button", () => {
   });
 
   it("opens external links in a new tab securely", () => {
-    render(<Button href="https://example.com" external>Open</Button>);
+    render(
+      <Button href="https://example.com" external>
+        Open
+      </Button>,
+    );
     const link = screen.getByRole("link");
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", "noopener noreferrer");
@@ -1434,7 +1482,9 @@ Lift the prototype's `.btn-primary` and `.btn-ghost` rules from `design/Miia Sit
   font-size: 15px;
   letter-spacing: -0.005em;
   cursor: pointer;
-  transition: transform 0.18s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.25s ease;
   position: relative;
 }
 
@@ -1532,6 +1582,7 @@ git commit -m "feat(components): add Button with primary and ghost variants"
 ### Task 18: ThemeToggle component
 
 **Files:**
+
 - Create: `src/components/ThemeToggle/ThemeToggle.tsx`
 - Create: `src/components/ThemeToggle/ThemeToggle.module.css`
 
@@ -1549,7 +1600,9 @@ Lift the prototype's `.theme-btn`, `.icon-sun`, `.icon-moon` rules (and the swap
   position: relative;
   color: var(--text);
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .toggle:hover {
@@ -1595,12 +1648,7 @@ import styles from "./ThemeToggle.module.css";
 export function ThemeToggle() {
   const [, toggle] = useTheme();
   return (
-    <button
-      type="button"
-      className={styles.toggle}
-      onClick={toggle}
-      aria-label="Toggle theme"
-    >
+    <button type="button" className={styles.toggle} onClick={toggle} aria-label="Toggle theme">
       <span className={`${styles.icon} ${styles.iconSun}`}>
         <Icon name="sun" />
       </span>
@@ -1624,6 +1672,7 @@ git commit -m "feat(components): add ThemeToggle with sun/moon swap animation"
 ### Task 19: LangSwitcher component
 
 **Files:**
+
 - Create: `src/components/LangSwitcher/LangSwitcher.tsx`
 - Create: `src/components/LangSwitcher/LangSwitcher.module.css`
 - Create: `src/components/LangSwitcher/Flag.tsx`
@@ -1670,7 +1719,9 @@ export function Flag({ locale }: { locale: Locale }) {
 Lift the prototype's `.lang-btn`, `.lang-menu`, `.lang-menu .item`, `.lang-menu .item.active` rules. Adjust class names for CSS Modules:
 
 ```css
-.wrap { position: relative; }
+.wrap {
+  position: relative;
+}
 
 .button {
   display: inline-flex;
@@ -1685,10 +1736,15 @@ Lift the prototype's `.lang-btn`, `.lang-menu`, `.lang-menu .item`, `.lang-menu 
   font-size: 12px;
   letter-spacing: 0.04em;
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.button:hover { border-color: var(--blue); color: var(--blue); }
+.button:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
 
 .menu {
   position: absolute;
@@ -1703,7 +1759,9 @@ Lift the prototype's `.lang-btn`, `.lang-menu`, `.lang-menu .item`, `.lang-menu 
   opacity: 0;
   pointer-events: none;
   transform: translateY(-4px);
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
   z-index: 50;
 }
 
@@ -1723,14 +1781,36 @@ Lift the prototype's `.lang-btn`, `.lang-menu`, `.lang-menu .item`, `.lang-menu 
   color: var(--text-2);
 }
 
-.item:hover { background: var(--blue-soft); color: var(--text); }
-.item[data-active="true"] { color: var(--text); }
+.item:hover {
+  background: var(--blue-soft);
+  color: var(--text);
+}
+.item[data-active="true"] {
+  color: var(--text);
+}
 
-.itemMain { display: flex; flex-direction: column; gap: 2px; }
-.itemNative { font-size: 14px; }
-.itemEnglish { font-size: 11px; color: var(--text-3); font-family: var(--font-mono); letter-spacing: 0.06em; }
-.check { margin-left: auto; opacity: 0; }
-.item[data-active="true"] .check { opacity: 1; color: var(--blue); }
+.itemMain {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.itemNative {
+  font-size: 14px;
+}
+.itemEnglish {
+  font-size: 11px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+}
+.check {
+  margin-left: auto;
+  opacity: 0;
+}
+.item[data-active="true"] .check {
+  opacity: 1;
+  color: var(--blue);
+}
 ```
 
 - [ ] **Step 3: Create `src/components/LangSwitcher/LangSwitcher.tsx`**
@@ -1844,6 +1924,7 @@ For each section in Tasks 20–26 the workflow is:
 ### Task 20: Nav section
 
 **Files:**
+
 - Create: `src/sections/Nav/Nav.tsx`
 - Create: `src/sections/Nav/Nav.module.css`
 
@@ -1912,7 +1993,9 @@ Lift `.nav`, `.nav-inner`, `.brand`, `.nav-links`, `.nav-right` from the prototy
   transition: color 0.18s ease;
 }
 
-.linkItem:hover { color: var(--text); }
+.linkItem:hover {
+  color: var(--text);
+}
 
 .right {
   display: flex;
@@ -1921,7 +2004,9 @@ Lift `.nav`, `.nav-inner`, `.brand`, `.nav-links`, `.nav-right` from the prototy
 }
 
 @media (max-width: 760px) {
-  .links { display: none; }
+  .links {
+    display: none;
+  }
 }
 ```
 
@@ -1955,9 +2040,15 @@ export function Nav() {
           </span>
         </a>
         <div className={styles.links}>
-          <a href="#capabilities" className={styles.linkItem}>{t("nav.links.capabilities")}</a>
-          <a href="#how" className={styles.linkItem}>{t("nav.links.how")}</a>
-          <a href="#support" className={styles.linkItem}>{t("nav.links.support")}</a>
+          <a href="#capabilities" className={styles.linkItem}>
+            {t("nav.links.capabilities")}
+          </a>
+          <a href="#how" className={styles.linkItem}>
+            {t("nav.links.how")}
+          </a>
+          <a href="#support" className={styles.linkItem}>
+            {t("nav.links.support")}
+          </a>
         </div>
         <div className={styles.right}>
           <ThemeToggle />
@@ -1992,6 +2083,7 @@ git commit -m "feat(nav): port nav section from prototype"
 ### Task 21: Hero section + PhonePreview
 
 **Files:**
+
 - Create: `src/sections/Hero/Hero.tsx`
 - Create: `src/sections/Hero/Hero.module.css`
 - Create: `src/sections/Hero/PhonePreview.tsx`
@@ -2002,7 +2094,9 @@ git commit -m "feat(nav): port nav section from prototype"
 Lift `.hero`, `.hero-grid`, `.eyebrow`, `.h1`, `.lede`, `.cta-row`, `.meta` from the prototype. Reference the README spec for exact font sizing (`clamp(48px, 6.4vw, 84px)` for H1).
 
 ```css
-.section { padding: 96px 0 56px; }
+.section {
+  padding: 96px 0 56px;
+}
 
 .grid {
   display: grid;
@@ -2012,7 +2106,10 @@ Lift `.hero`, `.hero-grid`, `.eyebrow`, `.h1`, `.lede`, `.cta-row`, `.meta` from
 }
 
 @media (max-width: 980px) {
-  .grid { grid-template-columns: 1fr; gap: 56px; }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
 }
 
 .eyebrow {
@@ -2144,7 +2241,9 @@ export function PhonePreview() {
               online
             </div>
           </div>
-          <span className={styles.menu} aria-hidden="true">⋮</span>
+          <span className={styles.menu} aria-hidden="true">
+            ⋮
+          </span>
         </div>
 
         <div className={styles.messages}>
@@ -2161,7 +2260,9 @@ export function PhonePreview() {
           </div>
           <div className={`${styles.msg} ${styles.bot}`} style={{ animationDelay: "3.4s" }}>
             <div className={styles.typing} aria-hidden="true">
-              <span /><span /><span />
+              <span />
+              <span />
+              <span />
             </div>
           </div>
         </div>
@@ -2170,12 +2271,16 @@ export function PhonePreview() {
           <Icon name="attachment" />
           <span className={styles.placeholder}>Message Miia…</span>
           <Icon name="mic" />
-          <span className={styles.send}><Icon name="sendCircle" /></span>
+          <span className={styles.send}>
+            <Icon name="sendCircle" />
+          </span>
         </div>
       </div>
 
       <span className={`${styles.cornerLabel} ${styles.cornerTopLeft}`}>01 · CHAT</span>
-      <span className={`${styles.cornerLabel} ${styles.cornerBottomRight}`}>auto-model · gpt → gemini</span>
+      <span className={`${styles.cornerLabel} ${styles.cornerBottomRight}`}>
+        auto-model · gpt → gemini
+      </span>
     </div>
   );
 }
@@ -2193,6 +2298,7 @@ git commit -m "feat(hero): port hero section and animated phone preview"
 ### Task 22: WhyMiia section
 
 **Files:**
+
 - Create: `src/sections/WhyMiia/WhyMiia.tsx`
 - Create: `src/sections/WhyMiia/WhyMiia.module.css`
 
@@ -2201,7 +2307,9 @@ git commit -m "feat(hero): port hero section and animated phone preview"
 Lift `.why`, `.why-grid`, `.why-card` from prototype. 3-column grid, 24px gap, stacks below 880px. Cards have 18px radius, 1px border, gradient surface, 32×28 padding, animated rainbow line at top (`linear-gradient(90deg, var(--blue), var(--amber))`).
 
 ```css
-.section { padding: 96px 0; }
+.section {
+  padding: 96px 0;
+}
 
 .grid {
   display: grid;
@@ -2210,7 +2318,9 @@ Lift `.why`, `.why-grid`, `.why-card` from prototype. 3-column grid, 24px gap, s
 }
 
 @media (max-width: 880px) {
-  .grid { grid-template-columns: 1fr; }
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card {
@@ -2250,7 +2360,10 @@ Lift `.why`, `.why-grid`, `.why-card` from prototype. 3-column grid, 24px gap, s
   margin-bottom: 12px;
 }
 
-.body { color: var(--text-2); font-size: 15px; }
+.body {
+  color: var(--text-2);
+  font-size: 15px;
+}
 ```
 
 - [ ] **Step 2: Create `src/sections/WhyMiia/WhyMiia.tsx`**
@@ -2298,6 +2411,7 @@ git commit -m "feat(why): port why-miia section, data-driven from i18n"
 ### Task 23: Capabilities bento grid
 
 **Files:**
+
 - Create: `src/sections/Capabilities/Capabilities.tsx`
 - Create: `src/sections/Capabilities/Capabilities.module.css`
 - Create: `src/sections/Capabilities/visuals.tsx`
@@ -2307,7 +2421,9 @@ The 7 cards have distinct mini-visuals (model chips, image tiles, voice bars, do
 - [ ] **Step 1: Create `src/sections/Capabilities/Capabilities.module.css`**
 
 ```css
-.section { padding: 56px 0 96px; }
+.section {
+  padding: 56px 0 96px;
+}
 
 .grid {
   display: grid;
@@ -2316,13 +2432,21 @@ The 7 cards have distinct mini-visuals (model chips, image tiles, voice bars, do
 }
 
 @media (max-width: 1040px) {
-  .grid { grid-template-columns: repeat(4, 1fr); }
-  .card { grid-column: span 4; }
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .card {
+    grid-column: span 4;
+  }
 }
 
 @media (max-width: 700px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-  .card { grid-column: span 2; }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card {
+    grid-column: span 2;
+  }
 }
 
 .card {
@@ -2331,7 +2455,9 @@ The 7 cards have distinct mini-visuals (model chips, image tiles, voice bars, do
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 28px;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
   overflow: hidden;
 }
 
@@ -2341,8 +2467,12 @@ The 7 cards have distinct mini-visuals (model chips, image tiles, voice bars, do
 }
 
 /* span sizes */
-.card[data-span="3"] { grid-column: span 3; }
-.card[data-span="2"] { grid-column: span 2; }
+.card[data-span="3"] {
+  grid-column: span 3;
+}
+.card[data-span="2"] {
+  grid-column: span 2;
+}
 
 .num {
   position: absolute;
@@ -2369,7 +2499,9 @@ The 7 cards have distinct mini-visuals (model chips, image tiles, voice bars, do
   margin-bottom: 18px;
 }
 
-.visual { margin-top: 8px; }
+.visual {
+  margin-top: 8px;
+}
 ```
 
 - [ ] **Step 2: Create `src/sections/Capabilities/visuals.tsx`**
@@ -2380,59 +2512,31 @@ For each of the 7 capability visuals in the prototype, lift the JSX skeleton:
 import { Icon } from "~/components/Icon/Icon";
 
 export function VisualChat() {
-  return (
-    <div>
-      {/* lift .chips block from prototype */}
-    </div>
-  );
+  return <div>{/* lift .chips block from prototype */}</div>;
 }
 
 export function VisualImage() {
-  return (
-    <div>
-      {/* lift .img-tiles block */}
-    </div>
-  );
+  return <div>{/* lift .img-tiles block */}</div>;
 }
 
 export function VisualVoice() {
-  return (
-    <div>
-      {/* 20 animated bars, lift .voice-bars */}
-    </div>
-  );
+  return <div>{/* 20 animated bars, lift .voice-bars */}</div>;
 }
 
 export function VisualDocs() {
-  return (
-    <div>
-      {/* PDF stack + search input with blinking cursor */}
-    </div>
-  );
+  return <div>{/* PDF stack + search input with blinking cursor */}</div>;
 }
 
 export function VisualVision() {
-  return (
-    <div>
-      {/* mock image with object + OCR bounding boxes */}
-    </div>
-  );
+  return <div>{/* mock image with object + OCR bounding boxes */}</div>;
 }
 
 export function VisualLinks() {
-  return (
-    <div>
-      {/* youtube URL row + amber-bordered quote */}
-    </div>
-  );
+  return <div>{/* youtube URL row + amber-bordered quote */}</div>;
 }
 
 export function VisualThreads() {
-  return (
-    <div>
-      {/* 3-item thread list, active highlighted blue */}
-    </div>
-  );
+  return <div>{/* 3-item thread list, active highlighted blue */}</div>;
 }
 
 export const visuals = [
@@ -2499,6 +2603,7 @@ git commit -m "feat(capabilities): port bento grid with 7 capability cards"
 ### Task 24: HowItWorks section
 
 **Files:**
+
 - Create: `src/sections/HowItWorks/HowItWorks.tsx`
 - Create: `src/sections/HowItWorks/HowItWorks.module.css`
 
@@ -2507,7 +2612,9 @@ git commit -m "feat(capabilities): port bento grid with 7 capability cards"
 Lift `.how`, `.how-panel`, `.step` from prototype. Single panel with 1px border, 20px radius, 3 columns, internal dividers, mono "STEP NN" labels.
 
 ```css
-.section { padding: 96px 0; }
+.section {
+  padding: 96px 0;
+}
 
 .panel {
   border: 1px solid var(--line);
@@ -2519,7 +2626,9 @@ Lift `.how`, `.how-panel`, `.step` from prototype. Single panel with 1px border,
 }
 
 @media (max-width: 880px) {
-  .panel { grid-template-columns: 1fr; }
+  .panel {
+    grid-template-columns: 1fr;
+  }
 }
 
 .step {
@@ -2527,11 +2636,18 @@ Lift `.how`, `.how-panel`, `.step` from prototype. Single panel with 1px border,
   border-right: 1px solid var(--line);
 }
 
-.step:last-child { border-right: 0; }
+.step:last-child {
+  border-right: 0;
+}
 
 @media (max-width: 880px) {
-  .step { border-right: 0; border-bottom: 1px solid var(--line); }
-  .step:last-child { border-bottom: 0; }
+  .step {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .step:last-child {
+    border-bottom: 0;
+  }
 }
 
 .label {
@@ -2560,7 +2676,10 @@ Lift `.how`, `.how-panel`, `.step` from prototype. Single panel with 1px border,
   margin-bottom: 10px;
 }
 
-.body { color: var(--text-2); font-size: 15px; }
+.body {
+  color: var(--text-2);
+  font-size: 15px;
+}
 ```
 
 - [ ] **Step 2: Create `src/sections/HowItWorks/HowItWorks.tsx`**
@@ -2607,6 +2726,7 @@ git commit -m "feat(how): port how-it-works section, data-driven"
 ### Task 25: FinalCTA section
 
 **Files:**
+
 - Create: `src/sections/FinalCTA/FinalCTA.tsx`
 - Create: `src/sections/FinalCTA/FinalCTA.module.css`
 
@@ -2718,13 +2838,17 @@ git commit -m "feat(cta): port final cta section with atmosphere orbs"
 ### Task 26: Footer section
 
 **Files:**
+
 - Create: `src/sections/Footer/Footer.tsx`
 - Create: `src/sections/Footer/Footer.module.css`
 
 - [ ] **Step 1: Create `src/sections/Footer/Footer.module.css`**
 
 ```css
-.footer { padding: 96px 0 48px; border-top: 1px solid var(--line); }
+.footer {
+  padding: 96px 0 48px;
+  border-top: 1px solid var(--line);
+}
 
 .grid {
   display: grid;
@@ -2734,10 +2858,14 @@ git commit -m "feat(cta): port final cta section with atmosphere orbs"
 }
 
 @media (max-width: 880px) {
-  .grid { grid-template-columns: 1fr 1fr; }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.brandCol { max-width: 320px; }
+.brandCol {
+  max-width: 320px;
+}
 
 .brandRow {
   display: flex;
@@ -2746,7 +2874,9 @@ git commit -m "feat(cta): port final cta section with atmosphere orbs"
   margin-bottom: 16px;
 }
 
-.brandText { font-weight: 500; }
+.brandText {
+  font-weight: 500;
+}
 
 .tagline {
   color: var(--text-2);
@@ -2763,7 +2893,14 @@ git commit -m "feat(cta): port final cta section with atmosphere orbs"
   margin-bottom: 20px;
 }
 
-.linkList { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
 .link {
   display: inline-flex;
@@ -2774,7 +2911,9 @@ git commit -m "feat(cta): port final cta section with atmosphere orbs"
   transition: color 0.18s ease;
 }
 
-.link:hover { color: var(--text); }
+.link:hover {
+  color: var(--text);
+}
 
 .link:hover .arrow {
   color: var(--amber);
@@ -2782,7 +2921,9 @@ git commit -m "feat(cta): port final cta section with atmosphere orbs"
 }
 
 .arrow {
-  transition: transform 0.18s ease, color 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    color 0.18s ease;
 }
 
 .bottom {
@@ -2822,7 +2963,13 @@ export function Footer() {
             <div className={styles.brandRow}>
               <picture>
                 <source srcSet={logoUrl} type="image/webp" />
-                <img src={logoFallback} alt="" width="36" height="36" style={{ borderRadius: 999 }} />
+                <img
+                  src={logoFallback}
+                  alt=""
+                  width="36"
+                  height="36"
+                  style={{ borderRadius: 999 }}
+                />
               </picture>
               <span className={styles.brandText}>{t("nav.brand")}</span>
             </div>
@@ -2869,6 +3016,7 @@ git commit -m "feat(footer): port footer with placeholder link destinations"
 ### Task 27: Assemble landing route with locale resolution
 
 **Files:**
+
 - Modify: `src/routes/landing.tsx`
 
 - [ ] **Step 1: Update `src/routes/landing.tsx`**
@@ -2942,6 +3090,7 @@ git commit -m "feat(landing): assemble sections and wire locale resolution"
 ### Task 28: Per-locale meta tags via `meta` export
 
 **Files:**
+
 - Modify: `src/routes/landing.tsx`
 - Modify: `src/root.tsx`
 
@@ -2970,7 +3119,10 @@ export const meta: MetaFunction = (args) => {
     { property: "og:type", content: "website" },
     { property: "og:url", content: url },
     { property: "og:image", content: ogImage },
-    { property: "og:locale", content: locale === "uk" ? "uk_UA" : locale === "pl" ? "pl_PL" : "en_US" },
+    {
+      property: "og:locale",
+      content: locale === "uk" ? "uk_UA" : locale === "pl" ? "pl_PL" : "en_US",
+    },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: t.meta.title },
     { name: "twitter:description", content: t.meta.description },
@@ -3057,6 +3209,7 @@ git commit -m "feat(seo): per-locale meta tags, hreflang, canonical, og, jsonld"
 ### Task 29: robots.txt + sitemap generator
 
 **Files:**
+
 - Create: `public/robots.txt`
 - Create: `scripts/generate-sitemap.ts`
 
@@ -3090,8 +3243,7 @@ function urlEntry(path: string): string {
   const url = `${SITE_URL}${path}`;
   const alternates = routes
     .map(
-      (r) =>
-        `    <xhtml:link rel="alternate" hreflang="${r.locale}" href="${SITE_URL}${r.path}"/>`,
+      (r) => `    <xhtml:link rel="alternate" hreflang="${r.locale}" href="${SITE_URL}${r.path}"/>`,
     )
     .join("\n");
   return `  <url>
@@ -3123,6 +3275,7 @@ Expected: build completes, terminal logs `Wrote .../build/client/sitemap.xml`. I
 - [ ] **Step 4: Verify prerendered HTML has translated content**
 
 Run:
+
 ```bash
 grep -o '<h1[^<]*<' build/client/uk/index.html | head -1
 grep -o '<h1[^<]*<' build/client/pl/index.html | head -1
@@ -3144,6 +3297,7 @@ git commit -m "feat(seo): add robots.txt and sitemap generator"
 ### Task 30: GA4 integration
 
 **Files:**
+
 - Create: `src/lib/analytics.ts`
 - Create: `.env.example`
 - Modify: `src/entry.client.tsx`
@@ -3191,7 +3345,11 @@ export function pageview(path: string, locale: string) {
   if (typeof window === "undefined" || !window.gtag) return;
   const id = import.meta.env.VITE_GA_MEASUREMENT_ID;
   if (!id) return;
-  window.gtag("event", "page_view", { page_path: path, page_location: window.location.href, language: locale });
+  window.gtag("event", "page_view", {
+    page_path: path,
+    page_location: window.location.href,
+    language: locale,
+  });
 }
 
 type EventName = "open_telegram" | "theme_toggle" | "lang_switch";
@@ -3244,7 +3402,9 @@ Already centralized via `TELEGRAM_BOT_URL` — we can wrap the Button or attach 
 ```tsx
 import { event } from "~/lib/analytics";
 
-<Button href={botUrl} external onClick={() => event("open_telegram", { surface: "hero" })}>…</Button>
+<Button href={botUrl} external onClick={() => event("open_telegram", { surface: "hero" })}>
+  …
+</Button>;
 ```
 
 Use surfaces `nav`, `hero`, `final`. Similarly add `event("theme_toggle")` in `ThemeToggle.tsx` and `event("lang_switch", { to: locale })` in `LangSwitcher.tsx`.
@@ -3263,6 +3423,7 @@ git commit -m "feat(analytics): wire GA4 page_view, open_telegram, theme_toggle,
 ### Task 31: Logo + OG image + favicon
 
 **Files:**
+
 - Create: `public/og-image.png`
 - Create: `public/favicon.svg`
 
@@ -3309,6 +3470,7 @@ git commit -m "feat(assets): add favicon and social og image"
 ### Task 32: Firebase config + first deploy
 
 **Files:**
+
 - Create: `firebase.json`
 - Create: `.firebaserc` (interactively by `firebase init`)
 
@@ -3324,15 +3486,15 @@ git commit -m "feat(assets): add favicon and social og image"
     "headers": [
       {
         "source": "**/*.@(js|css|woff2|webp|avif|jpg|png|svg)",
-        "headers": [{ "key": "Cache-Control", "value": "public,max-age=31536000,immutable" }]
+        "headers": [{ "key": "Cache-Control", "value": "public,max-age=31536000,immutable" }],
       },
       {
         "source": "**/*.html",
-        "headers": [{ "key": "Cache-Control", "value": "public,max-age=0,must-revalidate" }]
-      }
+        "headers": [{ "key": "Cache-Control", "value": "public,max-age=0,must-revalidate" }],
+      },
     ],
-    "rewrites": [{ "source": "**", "destination": "/index.html" }]
-  }
+    "rewrites": [{ "source": "**", "destination": "/index.html" }],
+  },
 }
 ```
 
@@ -3348,6 +3510,7 @@ This step requires interactive auth — run as the user:
 (The `!` prefix runs in this Claude session so output lands in conversation; for plain shell drop the `!`.)
 
 During `firebase init hosting`:
+
 - Use an existing project, or create new.
 - Public dir: `build/client`.
 - Single-page app rewrite: **No** (we handle it via `firebase.json` already, and we don't want all routes mapped to root).
@@ -3371,6 +3534,7 @@ VITE_SITE_URL=https://your-firebase-project.web.app
 Run: `npm run build`
 
 Expected output:
+
 ```
 build/client/index.html
 build/client/uk/index.html
@@ -3383,6 +3547,7 @@ build/client/assets/   (hashed JS, CSS, fonts)
 ```
 
 Verify:
+
 ```bash
 ls -la build/client/{index.html,uk/index.html,pl/index.html,sitemap.xml,robots.txt}
 ```
@@ -3421,6 +3586,7 @@ git commit -m "feat(hosting): configure firebase hosting with cache headers"
 Open Chrome DevTools → Lighthouse → analyze the production URL on Desktop, then Mobile.
 
 Expected: all four scores ≥ 95. If anything is below:
+
 - **Performance:** check that fonts are preloaded, images are webp, no render-blocking JS.
 - **Accessibility:** check color contrast, label associations, landmark regions.
 - **Best Practices:** check that no console errors, HTTPS, no deprecated APIs.
@@ -3431,6 +3597,7 @@ Iterate on any failing audit before declaring done.
 - [ ] **Step 2: Visual diff vs prototype**
 
 Open `design/Miia Site.html` in one tab and the production URL in another. Walk through each section:
+
 - Nav: spacing, logo, link order, button styling
 - Hero: title type sizes, gradient emphasis, phone preview animation timing
 - Why Miia: card spacing, italic numerals, top gradient line
@@ -3444,6 +3611,7 @@ If any section drifts, screenshot both and reconcile against `README.md` design 
 - [ ] **Step 3: SEO surface check**
 
 For each of `/`, `/uk/`, `/pl/` on the production URL:
+
 - View page source. Verify presence of:
   - `<html lang>` matching the locale
   - `<title>` and `<meta name="description">` in the right language
@@ -3454,6 +3622,7 @@ For each of `/`, `/uk/`, `/pl/` on the production URL:
   - Real translated content (not empty `<div id="root">`)
 
 Run:
+
 ```bash
 curl -s https://<your-host>/uk/ | grep -c '<title>'
 curl -s https://<your-host>/uk/ | grep '<html lang='
@@ -3463,6 +3632,7 @@ curl -s https://<your-host>/uk/ | grep 'hreflang='
 - [ ] **Step 4: Theme + lang behavior**
 
 In an incognito window:
+
 - Set OS to light theme, visit `/` — page should load in light mode with no flash.
 - Set browser language to Polish (or use a Polish device), visit `/` — should soft-redirect to `/pl`.
 - Reload `/pl/` — preference sticks.

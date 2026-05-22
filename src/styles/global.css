@@ -6,13 +6,16 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* ─── Background atmosphere ─────────────────────────────── */
 body::before {
   content: "";
-  position: fixed; inset: 0;
+  position: fixed;
+  inset: 0;
   background:
     radial-gradient(900px 600px at 12% 18%, var(--atmo-blue-1), transparent 60%),
     radial-gradient(900px 600px at 92% 12%, var(--atmo-amber-1), transparent 60%),
@@ -23,7 +26,8 @@ body::before {
 
 body::after {
   content: "";
-  position: fixed; inset: 0;
+  position: fixed;
+  inset: 0;
   background-image:
     linear-gradient(var(--grid-color) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
@@ -43,38 +47,59 @@ body::after {
 }
 
 /* ─── Typography utilities ──────────────────────────────── */
-.serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
-.mono { font-family: var(--font-mono); }
+.serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.mono {
+  font-family: var(--font-mono);
+}
 
-::selection { background: var(--amber); color: var(--ink); }
+::selection {
+  background: var(--amber);
+  color: var(--ink);
+}
 
 /* ─── Section heading shared ────────────────────────────── */
-section.block { padding: 96px 0; position: relative; }
+section.block {
+  padding: 96px 0;
+  position: relative;
+}
 
-.section-head { margin-bottom: 56px; max-width: 760px; }
+.section-head {
+  margin-bottom: 56px;
+  max-width: 760px;
+}
 
 .section-kicker {
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--text-3);
-  letter-spacing: .12em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 18px;
-  display: flex; align-items: center; gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 .section-kicker::before {
-  content: ""; width: 24px; height: 1px;
+  content: "";
+  width: 24px;
+  height: 1px;
   background: linear-gradient(90deg, var(--blue), transparent);
 }
 
 h2.section-title {
   font-size: clamp(34px, 4.4vw, 56px);
   line-height: 1.05;
-  letter-spacing: -.03em;
+  letter-spacing: -0.03em;
   font-weight: 500;
   margin: 0 0 18px;
 }
 
 .section-sub {
-  font-size: 18px; color: var(--text-2); max-width: 600px;
+  font-size: 18px;
+  color: var(--text-2);
+  max-width: 600px;
 }

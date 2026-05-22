@@ -98,22 +98,22 @@ Three Google Fonts, loaded together:
 - **Space Grotesk** (weights 300–700) — Display + UI. Headings use weight 500 with
   tight letter-spacing (`-0.03em` to `-0.035em` on hero/section titles).
 - **Instrument Serif** (italic) — Editorial accents only. Used inline within
-  headings (e.g. *every*, *can do*, *co-pilot*) and as numerals (i. ii. iii.) on
+  headings (e.g. _every_, _can do_, _co-pilot_) and as numerals (i. ii. iii.) on
   the "Why Miia" cards. Always italic.
 - **JetBrains Mono** — Labels, eyebrows, metadata, model chips, technical UI
   (e.g. "01 / smart conversations", "STEP 01", thread counts).
 
 Type scale:
 
-| Role | Size | Weight | Tracking |
-|---|---|---|---|
-| Hero H1 | `clamp(48px, 6.4vw, 84px)` | 500 | -0.035em |
-| Section H2 | `clamp(34px, 4.4vw, 56px)` | 500 | -0.03em |
-| Final-CTA H2 | `clamp(40px, 5.4vw, 72px)` | 500 | -0.035em |
-| Card H3 | 22px | 500 | -0.015em |
-| Body | 17px | 400 | normal |
-| Lede | 19px | 400 | normal |
-| Eyebrow / mono labels | 11–13px (Mono) | 400–500 | 0.04em–0.12em |
+| Role                  | Size                       | Weight  | Tracking      |
+| --------------------- | -------------------------- | ------- | ------------- |
+| Hero H1               | `clamp(48px, 6.4vw, 84px)` | 500     | -0.035em      |
+| Section H2            | `clamp(34px, 4.4vw, 56px)` | 500     | -0.03em       |
+| Final-CTA H2          | `clamp(40px, 5.4vw, 72px)` | 500     | -0.035em      |
+| Card H3               | 22px                       | 500     | -0.015em      |
+| Body                  | 17px                       | 400     | normal        |
+| Lede                  | 19px                       | 400     | normal        |
+| Eyebrow / mono labels | 11–13px (Mono)             | 400–500 | 0.04em–0.12em |
 
 Line-height: 1.05 for huge titles, 1.15 for card titles, 1.55 for body.
 
@@ -156,7 +156,7 @@ prototype). Buttons get a dual-tinted shadow:
 - **Left column:**
   - Eyebrow pill: "● LIVE · TELEGRAM BOT" (green pulsing dot)
   - H1 — two lines, large, with two italic-serif spans:
-    "Your AI *co-pilot*, inside the chat *you already use*."
+    "Your AI _co-pilot_, inside the chat _you already use_."
     The `co-pilot` span is gradient-clipped to blue; `you already use` to amber.
   - Lede paragraph (~3 lines, 540px max)
   - CTA row: primary `Open Miia in Telegram` (gradient pill: blue → amber, with
@@ -191,18 +191,18 @@ prototype). Buttons get a dual-tinted shadow:
 
 6-column grid, 18px gap. Span configuration:
 
-| # | Card | Span | Visual |
-|---|---|---|---|
-| 01 | Smart conversations | 3 | 4 model chips (GPT routed active, Gemini, Grok, "auto-select" dashed) |
-| 02 | Image generation | 3 | 4 gradient image tiles + dashed `+` tile |
-| 03 | Voice | 2 | 20 animated bars, staggered `wave` keyframe |
-| 04 | Documents | 2 | PDF stack + search input with blinking cursor |
-| 05 | Vision | 2 | Mock image with two labeled bounding boxes ("object" / "OCR") |
-| 06 | Links & video | 3 | YouTube URL row + amber-bordered summary quote |
-| 07 | Threads | 3 | 3-item thread list, active one highlighted blue |
+| #   | Card                | Span | Visual                                                                |
+| --- | ------------------- | ---- | --------------------------------------------------------------------- |
+| 01  | Smart conversations | 3    | 4 model chips (GPT routed active, Gemini, Grok, "auto-select" dashed) |
+| 02  | Image generation    | 3    | 4 gradient image tiles + dashed `+` tile                              |
+| 03  | Voice               | 2    | 20 animated bars, staggered `wave` keyframe                           |
+| 04  | Documents           | 2    | PDF stack + search input with blinking cursor                         |
+| 05  | Vision              | 2    | Mock image with two labeled bounding boxes ("object" / "OCR")         |
+| 06  | Links & video       | 3    | YouTube URL row + amber-bordered summary quote                        |
+| 07  | Threads             | 3    | 3-item thread list, active one highlighted blue                       |
 
 Cap title format: 22px, regular weight, with selective italic-serif emphasis
-(`<em>`) for one word — e.g. "Chat with *top-tier* models, no menu needed".
+(`<em>`) for one word — e.g. "Chat with _top-tier_ models, no menu needed".
 
 Cap-num label sits at top-right of each card in mono, format `NN / category`.
 

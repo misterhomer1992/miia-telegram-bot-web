@@ -24,9 +24,7 @@ export default function handleRequest(
           const body = new PassThrough();
           const stream = createReadableStreamFromReadable(body);
           responseHeaders.set("Content-Type", "text/html");
-          resolve(
-            new Response(stream, { headers: responseHeaders, status: responseStatusCode }),
-          );
+          resolve(new Response(stream, { headers: responseHeaders, status: responseStatusCode }));
           pipe(body);
         },
         onShellError(error: unknown) {

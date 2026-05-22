@@ -1,0 +1,146 @@
+.wrap {
+  position: relative;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--eyebrow-bg);
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.button:hover {
+  border-color: var(--line-2);
+  color: var(--text);
+}
+
+.buttonOpen {
+  border-color: var(--blue);
+  color: var(--text);
+}
+
+.chevron {
+  transition: transform 0.18s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 200px;
+  background: var(--bg-2);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: var(--shadow-med);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  z-index: 60;
+}
+
+.menu[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Arrow caret pointing up to the button */
+.menu::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 22px;
+  width: 10px;
+  height: 10px;
+  background: var(--bg-2);
+  border-top: 1px solid var(--line-2);
+  border-left: 1px solid var(--line-2);
+  transform: rotate(45deg);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.12s ease;
+}
+
+.item:hover {
+  background: var(--blue-soft);
+}
+
+.item[data-active="true"] {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.itemMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.itemNative {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.itemEnglish {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.item[data-active="true"] .itemEnglish {
+  color: var(--blue);
+  opacity: 0.75;
+}
+
+.check {
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  flex-shrink: 0;
+}
+
+.item[data-active="true"] .check {
+  opacity: 1;
+  color: var(--blue);
+}
+
+@media (max-width: 480px) {
+  .label {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .itemEnglish {
+    display: none;
+  }
+}

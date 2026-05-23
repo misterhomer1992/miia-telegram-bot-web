@@ -96,7 +96,6 @@
   animation: wave 1.3s ease-in-out infinite;
 }
 
-/* wave keyframe is declared in animations.css */
 @keyframes wave {
   0%,
   100% {
@@ -180,7 +179,6 @@
   animation: blink 1s steps(2) infinite;
 }
 
-/* blink keyframe is declared in animations.css */
 @keyframes blink {
   50% {
     opacity: 0;

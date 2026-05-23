@@ -22,6 +22,18 @@
   }
 }
 
+@media (max-width: 760px) {
+  .section {
+    padding: 32px 0 64px;
+  }
+}
+
+@media (max-width: 540px) {
+  .section {
+    padding: 24px 0 48px;
+  }
+}
+
 /* ─── Eyebrow pill ──────────────────────────────────────────────────────── */
 
 .eyebrow {

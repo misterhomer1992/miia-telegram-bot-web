@@ -47,3 +47,6 @@ ui-debug.log
 
 # Coverage
 coverage/
+
+# Worktrees
+.worktrees/

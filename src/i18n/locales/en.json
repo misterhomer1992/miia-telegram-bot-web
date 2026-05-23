@@ -16,8 +16,8 @@
   "hero": {
     "eyebrow": "LIVE · TELEGRAM BOT",
     "title": {
-      "line1": "Your AI <em1>co-pilot</em1>,",
-      "line2": "inside the chat <em2>you already use</em2>."
+      "line1": "Your AI <em1>lives</em1>",
+      "line2": "inside the <em2>chat</em2>."
     },
     "lede": "Miia routes every message to the best model for the job — GPT, Gemini, Grok — reads your docs, sees your images, listens to your voice, and lives where your conversations already happen.",
     "cta": {

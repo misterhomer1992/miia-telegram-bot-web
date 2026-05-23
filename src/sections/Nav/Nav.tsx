@@ -1,9 +1,11 @@
+import { Link, useMatches } from "react-router";
 import logoUrl from "~/assets/miia-logo.jpg?w=72&format=webp&imagetools";
 import logoFallback from "~/assets/miia-logo.jpg?w=72&format=jpg&imagetools";
 import { Button } from "~/components/Button/Button";
 import { Icon } from "~/components/Icon/Icon";
 import { LangSwitcher } from "~/components/LangSwitcher/LangSwitcher";
 import { ThemeToggle } from "~/components/ThemeToggle/ThemeToggle";
+import { localeFromRouteId } from "~/i18n/route";
 import { useT } from "~/i18n/useT";
 import { useTelegramUrl } from "~/hooks/useTelegramUrl";
 import { event } from "~/lib/analytics";
@@ -12,6 +14,9 @@ import styles from "./Nav.module.css";
 export function Nav() {
   const { t } = useT();
   const botUrl = useTelegramUrl();
+  const matches = useMatches();
+  const locale = localeFromRouteId(matches[matches.length - 1]?.id ?? "");
+  const contactHref = locale === "en" ? "/contact" : `/${locale}/contact`;
   return (
     <nav className={styles.nav}>
       <div className={`wrap ${styles.inner}`}>
@@ -38,9 +43,9 @@ export function Nav() {
           <a href="#how" className={styles.linkItem}>
             {t("nav.links.how")}
           </a>
-          <a href="#support" className={styles.linkItem}>
-            {t("nav.links.support")}
-          </a>
+          <Link to={contactHref} className={styles.linkItem}>
+            {t("nav.links.contact")}
+          </Link>
         </div>
         <div className={styles.right}>
           <ThemeToggle />

@@ -27,9 +27,11 @@
 }
 
 .brandRow {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 12px;
+  color: inherit;
+  text-decoration: none;
 }
 
 .brandLogo {

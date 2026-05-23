@@ -1,6 +1,7 @@
-import { Link } from "react-router";
+import { Link, useMatches } from "react-router";
 import logoUrl from "~/assets/miia-logo.jpg?w=72&format=webp&imagetools";
 import logoFallback from "~/assets/miia-logo.jpg?w=72&format=jpg&imagetools";
+import { localeFromRouteId } from "~/i18n/route";
 import { useT } from "~/i18n/useT";
 import styles from "./Footer.module.css";
 
@@ -10,13 +11,16 @@ type FooterCol = { title: string; links: FooterLink[] };
 export function Footer() {
   const { t } = useT();
   const cols = t("footer.columns", { returnObjects: true }) as FooterCol[];
+  const matches = useMatches();
+  const locale = localeFromRouteId(matches[matches.length - 1]?.id ?? "");
+  const homeHref = locale === "en" ? "/" : `/${locale}`;
   const year = new Date().getFullYear();
   return (
     <footer className={styles.footer} id="support">
       <div className="wrap">
         <div className={styles.grid}>
           <div className={styles.brandCol}>
-            <div className={styles.brandRow}>
+            <Link to={homeHref} className={styles.brandRow} aria-label={t("nav.brand")}>
               <picture>
                 <source srcSet={logoUrl} type="image/webp" />
                 <img
@@ -28,7 +32,7 @@ export function Footer() {
                 />
               </picture>
               <span className={styles.brandText}>{t("nav.brand")}</span>
-            </div>
+            </Link>
             <p className={styles.tagline}>{t("nav.brandSub")}</p>
           </div>
           {cols.map((col, i) => (

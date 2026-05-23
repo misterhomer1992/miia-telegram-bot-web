@@ -16,11 +16,12 @@ export function Nav() {
   const botUrl = useTelegramUrl();
   const matches = useMatches();
   const locale = localeFromRouteId(matches[matches.length - 1]?.id ?? "");
+  const homeHref = locale === "en" ? "/" : `/${locale}`;
   const contactHref = locale === "en" ? "/contact" : `/${locale}/contact`;
   return (
     <nav className={styles.nav}>
       <div className={`wrap ${styles.inner}`}>
-        <a href="#top" className={styles.brand}>
+        <Link to={homeHref} className={styles.brand} aria-label={t("nav.brand")}>
           <picture>
             <source srcSet={logoUrl} type="image/webp" />
             <img
@@ -35,7 +36,7 @@ export function Nav() {
             <span className={styles.brandName}>{t("nav.brand")}</span>
             <span className={styles.brandSub}>{t("nav.brandSub")}</span>
           </span>
-        </a>
+        </Link>
         <div className={styles.links}>
           <a href="#capabilities" className={styles.linkItem}>
             {t("nav.links.capabilities")}

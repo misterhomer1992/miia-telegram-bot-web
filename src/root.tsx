@@ -7,6 +7,7 @@ import fontsHref from "./styles/fonts.css?url";
 import animationsHref from "./styles/animations.css?url";
 import globalHref from "./styles/global.css?url";
 
+import { localeFromRouteId } from "./i18n/route";
 import { themeScript, langRedirectScript } from "./lib/inline-scripts";
 
 export const links: LinksFunction = () => [
@@ -22,7 +23,7 @@ export const links: LinksFunction = () => [
 export default function Root() {
   const matches = useMatches();
   const id = matches[matches.length - 1]?.id ?? "";
-  const lang = id === "landing-uk" ? "uk" : id === "landing-pl" ? "pl" : "en";
+  const lang = localeFromRouteId(id);
 
   return (
     <html lang={lang} data-theme="dark" suppressHydrationWarning>

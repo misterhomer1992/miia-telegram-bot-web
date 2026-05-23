@@ -125,32 +125,114 @@
       {
         "title": "Wsparcie",
         "links": [
-          { "label": "Centrum pomocy", "href": "#" },
-          { "label": "Kontakt", "href": "#" },
-          { "label": "Zgłoś problem", "href": "#" },
-          { "label": "Prośby o funkcje", "href": "#" }
+          { "label": "Kontakt", "href": "/pl/contact" }
         ]
       },
       {
         "title": "Społeczność",
         "links": [
-          { "label": "Kanał Telegram", "href": "#" },
-          { "label": "Grupa dyskusyjna", "href": "#" },
-          { "label": "Zmiany", "href": "#" },
-          { "label": "Mapa drogowa", "href": "#" }
+          { "label": "Kanał Telegram", "href": "#", "external": true },
+          { "label": "Zmiany", "href": "/pl/changelog" }
         ]
       },
       {
         "title": "Prawne",
         "links": [
-          { "label": "Prywatność", "href": "#" },
-          { "label": "Regulamin", "href": "#" },
-          { "label": "Dane i bezpieczeństwo", "href": "#" }
+          { "label": "Prywatność", "href": "/pl/privacy" },
+          { "label": "Regulamin", "href": "/pl/terms" },
+          { "label": "Dane i bezpieczeństwo", "href": "/pl/data-security" }
         ]
       }
     ],
     "bottom": "© 2026 MIIA · WSZELKIE PRAWA ZASTRZEŻONE",
     "tg": "ZBUDOWANE DLA TELEGRAMA · NIEPOWIĄZANE"
+  },
+  "pages": {
+    "back": "← Powrót do strony głównej",
+    "contact": {
+      "title": "Kontakt",
+      "lede": "Napisz prosto do zespołu — czytamy każdą wiadomość.",
+      "emailLabel": "Email",
+      "emailNote": "Zwykle odpowiadamy w ciągu dwóch dni roboczych.",
+      "cta": "Napisz e-mail"
+    },
+    "changelog": {
+      "title": "Zmiany",
+      "lede": "Co wydaliśmy, co zmieniliśmy i co dalej.",
+      "entries": [
+        {
+          "date": "2026-05-23",
+          "title": "Wydaliśmy nową stronę Miia",
+          "body": "Przeprojektowany landing w trzech językach, z prawidłowym wykrywaniem motywu i dopracowanym podglądem czatu."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Prywatność",
+      "lede": "Co zbieramy, dlaczego i czego nigdy nie robimy z twoimi danymi.",
+      "sections": [
+        {
+          "heading": "Co zbieramy",
+          "body": "Gdy rozmawiasz z Miia w Telegramie, bot otrzymuje twoje wiadomości i załączniki (obrazy, notatki głosowe, dokumenty, linki) — aby na nie odpowiedzieć. Przechowujemy historię rozmów, aby bot pamiętał kontekst między wiadomościami."
+        },
+        {
+          "heading": "Czego nie robimy",
+          "body": "Nigdy nie sprzedajemy twoich rozmów ani załączników. Nie pokazujemy reklam. Nie profilujemy cię w żadnym innym celu poza działaniem bota."
+        },
+        {
+          "heading": "Dostawcy AI",
+          "body": "Zapytania są kierowane do najlepszego dostawcy AI dla danego zadania (OpenAI, Google, xAI). Ci dostawcy przetwarzają zapytanie zgodnie z własnymi warunkami; nie otrzymują twoich identyfikatorów konta Telegram."
+        },
+        {
+          "heading": "Usuwanie",
+          "body": "Możesz wyczyścić historię rozmów w dowolnym momencie, wysyłając /reset do bota. Pełne usunięcie konta można zamówić, pisząc do nas."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Regulamin",
+      "lede": "Krótkie, zrozumiałe zasady korzystania z Miia.",
+      "sections": [
+        {
+          "heading": "Opis usługi",
+          "body": "Miia to bot Telegram, który kieruje twoje zapytania do dużych modeli językowych i zwraca ich odpowiedzi. Usługa jest dostarczana taka, jaka jest, bez gwarancji poziomu usług."
+        },
+        {
+          "heading": "Dopuszczalne użycie",
+          "body": "Nie używaj Miia do łamania prawa, generowania treści wymierzonych w konkretne osoby lub szkodzących im, ani do obchodzenia mechanizmów ochrony przed nadużyciami u dostawców AI. Możemy ograniczać lub blokować konta, które to robią."
+        },
+        {
+          "heading": "Brak gwarancji",
+          "body": "Odpowiedzi pochodzą od zewnętrznych modeli AI i mogą być błędne, niekompletne lub nieaktualne. Nie polegaj na Miia w decyzjach medycznych, prawnych ani finansowych."
+        },
+        {
+          "heading": "Zmiany",
+          "body": "Możemy aktualizować ten regulamin wraz z rozwojem bota. O istotnych zmianach poinformujemy na kanale Telegram i w dzienniku zmian."
+        }
+      ]
+    },
+    "dataSecurity": {
+      "title": "Dane i bezpieczeństwo",
+      "lede": "Jak twoje rozmowy i pliki są chronione od początku do końca.",
+      "sections": [
+        {
+          "heading": "Bezpieczeństwo transportu",
+          "body": "Cały ruch między Telegramem, Miia i dostawcami AI odbywa się przez TLS. Nic nie opuszcza twojego urządzenia w postaci niezaszyfrowanej."
+        },
+        {
+          "heading": "Przechowywanie",
+          "body": "Historia rozmów jest szyfrowana w spoczynku. Przechowujemy tylko to, czego bot potrzebuje do utrzymania kontekstu, i możesz ją wyczyścić w dowolnym momencie przez /reset."
+        },
+        {
+          "heading": "Dostęp",
+          "body": "Tylko operator bota ma dostęp do przechowywanych rozmów — wyłącznie w celu obsługi i ulepszania usługi. Nie udostępniamy tego dostępu nikomu innemu."
+        },
+        {
+          "heading": "Izolacja dostawców",
+          "body": "Kiedy Miia przekazuje twoje zapytanie do GPT, Gemini lub Grok, usuwamy identyfikatory konta Telegram i wysyłamy tylko tekst wiadomości oraz załączniki."
+        }
+      ]
+    }
   },
   "lang": {
     "en": "English",

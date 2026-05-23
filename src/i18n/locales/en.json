@@ -125,32 +125,114 @@
       {
         "title": "Support",
         "links": [
-          { "label": "Help center", "href": "#" },
-          { "label": "Contact us", "href": "#" },
-          { "label": "Report an issue", "href": "#" },
-          { "label": "Feature requests", "href": "#" }
+          { "label": "Contact us", "href": "/contact" }
         ]
       },
       {
         "title": "Community",
         "links": [
-          { "label": "Telegram channel", "href": "#" },
-          { "label": "Discussion group", "href": "#" },
-          { "label": "Changelog", "href": "#" },
-          { "label": "Roadmap", "href": "#" }
+          { "label": "Telegram channel", "href": "#", "external": true },
+          { "label": "Changelog", "href": "/changelog" }
         ]
       },
       {
         "title": "Legal",
         "links": [
-          { "label": "Privacy", "href": "#" },
-          { "label": "Terms", "href": "#" },
-          { "label": "Data & security", "href": "#" }
+          { "label": "Privacy", "href": "/privacy" },
+          { "label": "Terms", "href": "/terms" },
+          { "label": "Data & security", "href": "/data-security" }
         ]
       }
     ],
     "bottom": "© 2026 MIIA · ALL RIGHTS RESERVED",
     "tg": "BUILT FOR TELEGRAM · NOT AFFILIATED"
+  },
+  "pages": {
+    "back": "← Back to home",
+    "contact": {
+      "title": "Contact us",
+      "lede": "Reach the team directly — we read every message.",
+      "emailLabel": "Email",
+      "emailNote": "We aim to reply within two business days.",
+      "cta": "Send us an email"
+    },
+    "changelog": {
+      "title": "Changelog",
+      "lede": "What's shipped, what changed, and what's next.",
+      "entries": [
+        {
+          "date": "2026-05-23",
+          "title": "We released the new Miia website",
+          "body": "A redesigned landing page in three languages, with proper theme detection and a polished chat preview."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy",
+      "lede": "What we collect, why, and what we never do with it.",
+      "sections": [
+        {
+          "heading": "What we collect",
+          "body": "When you chat with Miia inside Telegram, the bot receives your messages and any attachments you send (images, voice notes, documents, links) so it can answer them. We store conversation history so the bot remembers context across messages."
+        },
+        {
+          "heading": "What we don't do",
+          "body": "We never sell your chats or attachments. We don't run advertising. We don't profile you for any purpose other than running the bot."
+        },
+        {
+          "heading": "Third-party AI providers",
+          "body": "Prompts are routed to the AI provider best suited to the task (OpenAI, Google, xAI). Those providers process the prompt under their respective terms; they do not receive your Telegram account identifiers."
+        },
+        {
+          "heading": "Deletion",
+          "body": "You can wipe your conversation history at any time by sending /reset to the bot. Full account deletion can be requested by emailing us."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms",
+      "lede": "The short, plain-English rules for using Miia.",
+      "sections": [
+        {
+          "heading": "Service description",
+          "body": "Miia is a Telegram bot that routes your prompts to large language models and returns their answers. Miia is provided as-is, with no service-level guarantees."
+        },
+        {
+          "heading": "Acceptable use",
+          "body": "Don't use Miia to break the law, to generate content that targets or harms specific real people, or to evade the abuse controls of the underlying providers. We may rate-limit or block accounts that do."
+        },
+        {
+          "heading": "No warranty",
+          "body": "Outputs come from third-party AI models and may be wrong, incomplete, or out of date. Don't rely on Miia for medical, legal, or financial decisions."
+        },
+        {
+          "heading": "Changes",
+          "body": "We may update these terms as the bot evolves. Material changes will be announced on the Telegram channel and in the changelog."
+        }
+      ]
+    },
+    "dataSecurity": {
+      "title": "Data & security",
+      "lede": "How your conversations and files are protected end-to-end.",
+      "sections": [
+        {
+          "heading": "Transport security",
+          "body": "All traffic between Telegram, Miia, and the AI providers travels over TLS. Nothing leaves your device unencrypted."
+        },
+        {
+          "heading": "Storage",
+          "body": "Conversation history is encrypted at rest. We store only what the bot needs to keep context, and you can wipe it at any time with /reset."
+        },
+        {
+          "heading": "Access",
+          "body": "Only the bot operator can access stored conversations, and only for the purpose of running and improving the service. We don't share access with anyone else."
+        },
+        {
+          "heading": "Provider isolation",
+          "body": "When Miia hands your prompt to GPT, Gemini, or Grok, we strip Telegram account identifiers and send only the message text and any attachments you included."
+        }
+      ]
+    }
   },
   "lang": {
     "en": "English",

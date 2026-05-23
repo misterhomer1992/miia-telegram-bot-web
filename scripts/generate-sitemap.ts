@@ -7,34 +7,52 @@ if (existsSync(".env.production")) loadEnv({ path: ".env.production" });
 else if (existsSync(".env")) loadEnv({ path: ".env" });
 
 const SITE_URL = process.env.VITE_SITE_URL ?? "https://miia.example.com";
-const routes: { path: string; locale: "en" | "uk" | "pl" }[] = [
-  { path: "/", locale: "en" },
-  { path: "/uk", locale: "uk" },
-  { path: "/pl", locale: "pl" },
+
+const LOCALES = ["en", "uk", "pl"] as const;
+type Locale = (typeof LOCALES)[number];
+
+const PAGES = ["contact", "changelog", "privacy", "terms", "data-security"];
+
+function homePath(locale: Locale): string {
+  return locale === "en" ? "/" : `/${locale}`;
+}
+
+function pagePath(locale: Locale, slug: string): string {
+  return locale === "en" ? `/${slug}` : `/${locale}/${slug}`;
+}
+
+type Group = { paths: { locale: Locale; path: string }[] };
+
+const groups: Group[] = [
+  { paths: LOCALES.map((locale) => ({ locale, path: homePath(locale) })) },
+  ...PAGES.map((slug) => ({
+    paths: LOCALES.map((locale) => ({ locale, path: pagePath(locale, slug) })),
+  })),
 ];
 
 const now = new Date().toISOString().slice(0, 10);
 
-function urlEntry(path: string): string {
+function urlEntry(group: Group, path: string): string {
   const url = `${SITE_URL}${path}`;
-  const alternates = routes
+  const alternates = group.paths
     .map(
       (r) =>
         `    <xhtml:link rel="alternate" hreflang="${r.locale}" href="${SITE_URL}${r.path}"/>`,
     )
     .join("\n");
+  const enPath = group.paths.find((p) => p.locale === "en")?.path ?? "/";
   return `  <url>
     <loc>${url}</loc>
     <lastmod>${now}</lastmod>
 ${alternates}
-    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}${enPath}"/>
   </url>`;
 }
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${routes.map((r) => urlEntry(r.path)).join("\n")}
+${groups.flatMap((g) => g.paths.map((p) => urlEntry(g, p.path))).join("\n")}
 </urlset>
 `;
 

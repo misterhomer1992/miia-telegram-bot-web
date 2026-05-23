@@ -1,9 +1,10 @@
+import { Link } from "react-router";
 import logoUrl from "~/assets/miia-logo.jpg?w=72&format=webp&imagetools";
 import logoFallback from "~/assets/miia-logo.jpg?w=72&format=jpg&imagetools";
 import { useT } from "~/i18n/useT";
 import styles from "./Footer.module.css";
 
-type FooterLink = { label: string; href: string };
+type FooterLink = { label: string; href: string; external?: boolean };
 type FooterCol = { title: string; links: FooterLink[] };
 
 export function Footer() {
@@ -36,11 +37,7 @@ export function Footer() {
               <ul className={styles.linkList}>
                 {col.links.map((link, j) => (
                   <li key={j}>
-                    {/* TODO: replace `#` placeholders with real destinations */}
-                    <a href={link.href} className={styles.link}>
-                      {link.label}
-                      <span className={styles.arrow}>↗</span>
-                    </a>
+                    <FooterLinkItem link={link} />
                   </li>
                 ))}
               </ul>
@@ -53,5 +50,27 @@ export function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterLinkItem({ link }: { link: FooterLink }) {
+  const isInternal = link.href.startsWith("/") && !link.external;
+  if (isInternal) {
+    return (
+      <Link to={link.href} className={styles.link}>
+        {link.label}
+      </Link>
+    );
+  }
+  return (
+    <a
+      href={link.href}
+      className={styles.link}
+      target={link.external ? "_blank" : undefined}
+      rel={link.external ? "noopener noreferrer" : undefined}
+    >
+      {link.label}
+      <span className={styles.arrow}>↗</span>
+    </a>
   );
 }

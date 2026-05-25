@@ -234,6 +234,15 @@
       ]
     }
   },
+  "success": {
+    "meta": {
+      "title": "Subskrypcja potwierdzona — Miia"
+    },
+    "title": "Płatność <em4>otrzymana</em4>.",
+    "sub": "Twoja subskrypcja jest aktywna. Możesz zamknąć to okno i wrócić do bota Miia w Telegramie — wszystko jest już odblokowane.",
+    "cta": "Otwórz Miia w Telegramie",
+    "hint": "Można zamknąć tę kartę"
+  },
   "lang": {
     "en": "English",
     "uk": "Ukrainian",

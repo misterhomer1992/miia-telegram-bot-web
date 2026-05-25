@@ -234,6 +234,15 @@
       ]
     }
   },
+  "success": {
+    "meta": {
+      "title": "Subscription confirmed — Miia"
+    },
+    "title": "Payment <em4>received</em4>.",
+    "sub": "Your subscription is active. You can close this window and head back to the Miia bot in Telegram — everything's already unlocked.",
+    "cta": "Open Miia in Telegram",
+    "hint": "Safe to close this tab"
+  },
   "lang": {
     "en": "English",
     "uk": "Ukrainian",

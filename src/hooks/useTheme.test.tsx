@@ -3,20 +3,41 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { useTheme } from "./useTheme";
 
 describe("useTheme", () => {
+  const realMatchMedia = window.matchMedia;
+
   beforeEach(() => {
     document.documentElement.dataset.theme = "dark";
     localStorage.clear();
+    // Default to "OS prefers dark" so the no-stored-preference cases are
+    // deterministic; individual tests override matchMedia as needed.
+    window.matchMedia = vi
+      .fn()
+      .mockReturnValue({ matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn() }) as unknown as typeof window.matchMedia;
   });
 
   afterEach(() => {
     document.documentElement.removeAttribute("data-theme");
     localStorage.clear();
+    window.matchMedia = realMatchMedia;
   });
 
-  it("reads initial theme from document.documentElement.dataset.theme", () => {
-    document.documentElement.dataset.theme = "light";
+  it("reads initial theme from a stored preference, ignoring the data-theme attribute", () => {
+    // The attribute may have been wiped by React on client-rendered routes,
+    // so the stored preference is the source of truth.
+    document.documentElement.dataset.theme = "dark";
+    localStorage.setItem("miia.theme", "light");
     const { result } = renderHook(() => useTheme());
     expect(result.current[0]).toBe("light");
+  });
+
+  it("falls back to OS prefers-color-scheme when there is no stored preference", () => {
+    const original = window.matchMedia;
+    window.matchMedia = vi
+      .fn()
+      .mockReturnValue({ matches: true, addEventListener: vi.fn(), removeEventListener: vi.fn() }) as unknown as typeof window.matchMedia;
+    const { result } = renderHook(() => useTheme());
+    expect(result.current[0]).toBe("light");
+    window.matchMedia = original;
   });
 
   it("toggling flips between dark and light", () => {

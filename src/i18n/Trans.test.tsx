@@ -34,4 +34,11 @@ describe("Trans", () => {
     expect(em.tagName).toBe("EM");
     expect(em).toHaveAttribute("data-variant", "plain");
   });
+
+  it("renders <em4> tokens as a green italic-serif emphasis span", () => {
+    render(<Trans>{"Payment <em4>received</em4>."}</Trans>);
+    const em = screen.getByText("received");
+    expect(em.tagName).toBe("EM");
+    expect(em).toHaveAttribute("data-variant", "green");
+  });
 });

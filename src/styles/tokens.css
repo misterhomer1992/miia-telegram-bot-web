@@ -20,6 +20,8 @@
   --amber: #f5a166;
   --amber-2: #e88a4a;
   --amber-soft: rgba(245, 161, 102, 0.14);
+  --green: #4ade80;
+  --green-soft: rgba(74, 222, 128, 0.14);
   --silver: #c9d4e8;
 
   /* Surface tokens (theme-sensitive) */
@@ -29,6 +31,7 @@
   --atmo-blue-1: rgba(107, 182, 240, 0.18);
   --atmo-amber-1: rgba(245, 161, 102, 0.14);
   --atmo-blue-2: rgba(107, 182, 240, 0.1);
+  --atmo-green-1: rgba(74, 222, 128, 0.1);
   --eyebrow-bg: rgba(18, 36, 68, 0.6);
   --chip-bg: rgba(5, 11, 26, 0.4);
   --cta-fill: var(--text);
@@ -71,6 +74,8 @@
   --amber: #d97843;
   --amber-2: #b6562a;
   --amber-soft: rgba(217, 120, 67, 0.1);
+  --green: #16a34a;
+  --green-soft: rgba(22, 163, 74, 0.1);
   --silver: #4a5a78;
 
   /* Surface tokens */
@@ -80,6 +85,7 @@
   --atmo-blue-1: rgba(40, 118, 196, 0.1);
   --atmo-amber-1: rgba(217, 120, 67, 0.08);
   --atmo-blue-2: rgba(40, 118, 196, 0.06);
+  --atmo-green-1: rgba(22, 163, 74, 0.08);
   --eyebrow-bg: rgba(255, 255, 255, 0.7);
   --chip-bg: rgba(245, 247, 252, 0.7);
   --cta-fill: #0a1428;

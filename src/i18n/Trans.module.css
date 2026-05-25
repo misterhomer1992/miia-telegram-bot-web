@@ -21,3 +21,7 @@
 .em[data-variant="plain"] {
   color: inherit;
 }
+
+.em[data-variant="green"] {
+  color: var(--green);
+}

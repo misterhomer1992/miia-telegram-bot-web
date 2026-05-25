@@ -18,4 +18,8 @@ export default [
   route("uk", "routes/landing.tsx", { id: "landing-uk" }),
   route("pl", "routes/landing.tsx", { id: "landing-pl" }),
   ...pageRoutes(),
+  // Payment success page — noindex, intentionally excluded from the sitemap.
+  route("success-url", "routes/success-url.tsx", { id: "success_url-en" }),
+  route("uk/success-url", "routes/success-url.tsx", { id: "success_url-uk" }),
+  route("pl/success-url", "routes/success-url.tsx", { id: "success_url-pl" }),
 ] satisfies RouteConfig;

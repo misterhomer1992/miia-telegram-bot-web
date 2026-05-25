@@ -1,0 +1,175 @@
+/* ─── Centered success card ─────────────────────────────── */
+.main {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100vh - 69px); /* viewport minus the sticky nav */
+  min-height: calc(100dvh - 69px);
+  display: grid;
+  place-items: center;
+  padding: 56px 24px;
+}
+
+/* A hint of green glow at the bottom, echoing the success state */
+.main::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(1000px 700px at 50% 115%, var(--atmo-green-1), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  border: 1px solid var(--line-2);
+  border-radius: 28px;
+  padding: 56px 48px 48px;
+  background: linear-gradient(180deg, var(--card-grad-from) 0%, var(--card-grad-to) 100%);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-strong);
+  text-align: center;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--green), var(--blue), var(--amber), transparent);
+  opacity: 0.6;
+}
+
+/* ─── Animated check ─────────────────────────────────────── */
+.checkRing {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 28px;
+  border-radius: 50%;
+  background: var(--green-soft);
+  display: grid;
+  place-items: center;
+  animation: ringPop 0.55s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+.checkRing::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid var(--green);
+  opacity: 0.3;
+  animation: ringExpand 2.8s ease-out infinite;
+}
+
+.checkRing::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 1.5px solid var(--green);
+  opacity: 0.55;
+}
+
+.checkSvg {
+  width: 40px;
+  height: 40px;
+  stroke: var(--green);
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.checkSvg path {
+  stroke-dasharray: 28;
+  stroke-dashoffset: 28;
+  animation: checkDraw 0.55s 0.35s ease forwards;
+}
+
+@keyframes ringPop {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ringExpand {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+@keyframes checkDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ─── Copy ───────────────────────────────────────────────── */
+.title {
+  font-size: clamp(32px, 4.4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+  margin: 0 0 14px;
+}
+
+.sub {
+  margin: 0 auto 36px;
+  max-width: 38ch;
+  color: var(--text-2);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.hint::before,
+.hint::after {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--line-2);
+}
+
+@media (max-width: 540px) {
+  .main {
+    padding: 32px 16px;
+  }
+  .card {
+    padding: 44px 28px 36px;
+    border-radius: 22px;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .sub {
+    font-size: 16px;
+  }
+}

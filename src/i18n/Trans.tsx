@@ -1,14 +1,15 @@
 import { Fragment, type ReactNode } from "react";
 import styles from "./Trans.module.css";
 
-const VARIANT: Record<string, "blue" | "amber" | "plain"> = {
+const VARIANT: Record<string, "blue" | "amber" | "plain" | "green"> = {
   em1: "blue",
   em2: "amber",
   em3: "plain",
+  em4: "green",
 };
 
 export function Trans({ children }: { children: string }) {
-  const tokenRe = /<(em[123])>([^<]*)<\/\1>/g;
+  const tokenRe = /<(em[1-4])>([^<]*)<\/\1>/g;
   const parts: ReactNode[] = [];
   let lastIndex = 0;
   let match: RegExpExecArray | null;

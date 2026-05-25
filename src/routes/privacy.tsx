@@ -1,8 +1,11 @@
 import { useMatches } from "react-router";
 import { setupI18n } from "~/i18n/config";
 import { localeFromRouteId } from "~/i18n/route";
+import { pageMeta } from "~/i18n/pageMeta";
 import { useT } from "~/i18n/useT";
 import { PageLayout, PageSection } from "~/sections/PageLayout/PageLayout";
+
+export const meta = pageMeta("privacy");
 
 type Section = { heading: string; body: string };
 
